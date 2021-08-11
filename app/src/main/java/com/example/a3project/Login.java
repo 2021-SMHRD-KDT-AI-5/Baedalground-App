@@ -57,6 +57,8 @@ public class Login extends AppCompatActivity {
                     it_login.putExtra("id", edt_id.getText().toString());
                     Toast.makeText(getApplicationContext(), "로그인성공!", Toast.LENGTH_SHORT).show();
                     startActivity(it_login);
+                }else{
+                    Toast.makeText(getApplicationContext(), "실패...", Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
