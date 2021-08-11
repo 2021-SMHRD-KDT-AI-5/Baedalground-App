@@ -60,7 +60,7 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="24dp"
         android:text="비밀번호 확인"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -71,9 +71,9 @@
 
     <EditText
         android:id="@+id/edt_checkpw"
-        android:layout_width="0dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="60dp"
+        android:layout_width="196dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="56dp"
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="@+id/edt_joinpw"
@@ -96,8 +96,8 @@
 
     <EditText
         android:id="@+id/edt_address"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="320dp"
+        android:layout_height="47dp"
         android:layout_marginTop="48dp"
         android:ems="10"
         android:inputType="textPostalAddress"
@@ -123,37 +123,13 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         android:text="성별"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintHorizontal_bias="0.392"
         app:layout_constraintStart_toEndOf="@+id/textView10"
-        app:layout_constraintTop_toBottomOf="@+id/edt_address" />
-
-    <CheckBox
-        android:id="@+id/cb_man"
-        android:layout_width="68dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="4dp"
-        android:text="남자"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView11"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
-
-    <CheckBox
-        android:id="@+id/cb_woman"
-        android:layout_width="68dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="52dp"
-        android:text="여자"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.109"
-        app:layout_constraintStart_toEndOf="@+id/cb_man"
         app:layout_constraintTop_toBottomOf="@+id/edt_address" />
 
     <EditText
@@ -173,8 +149,8 @@
         android:layout_width="328dp"
         android:layout_height="57dp"
         android:layout_marginTop="120dp"
-        android:backgroundTint="#F4C946"
-        android:text="JOIN"
+        android:backgroundTint="#0788C3"
+        android:text="가입하기"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/edt_address"
         app:layout_constraintHorizontal_bias="0.0"
@@ -192,5 +168,56 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023"
         app:srcCompat="@drawable/teamimg" />
+
+    <Button
+        android:id="@+id/btn_check"
+        android:layout_width="99dp"
+        android:layout_height="0dp"
+        android:backgroundTint="#F4CD56"
+        android:text="중복확인"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/edt_checkpw"
+        app:layout_constraintEnd_toEndOf="@+id/edt_joinpw"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/edt_checkpw"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <CheckBox
+        android:id="@+id/cb_man"
+        android:layout_width="75dp"
+        android:layout_height="42dp"
+        android:text="남자"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView11"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <CheckBox
+        android:id="@+id/cb_women"
+        android:layout_width="78dp"
+        android:layout_height="42dp"
+        android:text="여자"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/cb_man"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.109"
+        app:layout_constraintStart_toEndOf="@+id/cb_man"
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="세"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/edt_age"
+        app:layout_constraintEnd_toStartOf="@+id/cb_man"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/edt_age"
+        app:layout_constraintTop_toTopOf="@+id/edt_age"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
