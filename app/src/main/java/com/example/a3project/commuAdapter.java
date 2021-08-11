@@ -19,7 +19,6 @@ public class commuAdapter {
 //        this.inf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 //        this.layout =layout;
 //        this.data = data;
-//
 //    }
 //
 //    @Override

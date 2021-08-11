@@ -12,8 +12,9 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
-
+    //  상단바
     BottomNavigationView tnv;
+    //  하단바
     BottomNavigationView bnv;
 
     Fragment1 fragment1;
