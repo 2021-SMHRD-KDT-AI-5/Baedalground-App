@@ -15,7 +15,7 @@ public class Fragment2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-
+        //fragment2 주석추가
         View view = inflater.inflate(R.layout.fragment_2, container, false);
         return view;
     }
