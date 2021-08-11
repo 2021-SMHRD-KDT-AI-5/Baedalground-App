@@ -39,9 +39,15 @@ public class MainActivity extends AppCompatActivity {
         fragment5 = new Fragment5();
         fragment6 = new Fragment6();
 
+        Intent it_login = getIntent();
+        if(it_login.getStringExtra("id")!=null){
+            tnv.getMenu().getItem(2).setVisible(false);
+            tnv.getMenu().getItem(3).setVisible(true);
+        }
+
         /// 밖에다 놔두면 처음 화면에 띄워짐
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container, fragment6).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment6).commit();
+
         // bottomNavigationBar 에서 어떤 메뉴가 선택되는지 감지한다.
         bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -49,36 +55,22 @@ public class MainActivity extends AppCompatActivity {
                 // 매개변수 item => 내가 선택한 메뉴
                 switch (item.getItemId()) {
                     case R.id.menu_1:  // tab1이라면
-
-                        getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.container, fragment1).commit();
-                        // R.id.container 자리에 fragment1을 끼우겠다!
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment1).commit();
                         break;
                     case R.id.menu_2:
-                        getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.container, fragment2).commit();
-                        // R.id.container 자리에 fragment2을 끼우겠다!
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment2).commit();
 
                         break;
                     case R.id.menu_3:
-                        getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.container, fragment3).commit();
-                        // R.id.container 자리에 fragment3을 끼우겠다!
-
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment3).commit();
                         break;
                     case R.id.menu_4:
-                        getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.container, fragment4).commit();
-                        // R.id.container 자리에 fragment4을 끼우겠다!
-
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment4).commit();
                         break;
                     case R.id.menu_5:
-                        getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.container, fragment5).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment5).commit();
                         break;
                 }
-
-
                 return true;
             }
         });
@@ -87,14 +79,12 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.home:  // tab1이라면
-                        getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.container, fragment6).commit();
-                        // R.id.container 자리에 fragment1을 끼우겠다!
-//                        R.id.login.visible(true);
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment6).commit();
                         break;
                     case R.id.login:
                         Intent it_login = new Intent(MainActivity.this, Login.class);
                         startActivity(it_login);
+                        break;
                 }
                 return true;
 
