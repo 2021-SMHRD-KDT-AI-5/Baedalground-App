@@ -5,20 +5,21 @@ public class memberVO {
     private String id;
     private String pw;
     private String address;
-    private String age;
+    private int age;
     private String gender;
+    private int cash;
 
-    public memberVO(String id, String pw, String address, String age, String gender) {
+    public memberVO(String id, String pw, String address, int age, String gender, int cash) {
         this.id = id;
         this.pw = pw;
         this.address = address;
         this.age = age;
         this.gender = gender;
+        this.cash = cash;
     }
 
-    public memberVO(){
-
-    };
+    public memberVO() {
+    }
 
     public String getId() {
         return id;
@@ -44,11 +45,11 @@ public class memberVO {
         this.address = address;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
@@ -59,4 +60,13 @@ public class memberVO {
     public void setGender(String gender) {
         this.gender = gender;
     }
+
+    public int getCash() {
+        return cash;
+    }
+
+    public void setCash(int cash) {
+        this.cash = cash;
+    }
 }
+
