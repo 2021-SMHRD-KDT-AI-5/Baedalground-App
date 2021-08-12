@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 public class Fragment6 extends Fragment {
 
     ImageView img_1,img_2,img_3,img_4,img_5,img_6;
+    EditText edt_addr;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -28,6 +30,8 @@ public class Fragment6 extends Fragment {
         img_4 = view.findViewById(R.id.img_4);
         img_5 = view.findViewById(R.id.img_5);
         img_6 = view.findViewById(R.id.img_6);
+
+        edt_addr = view.findViewById(R.id.edt_address);
 
         img_1.setOnClickListener(new View.OnClickListener() {
             @Override

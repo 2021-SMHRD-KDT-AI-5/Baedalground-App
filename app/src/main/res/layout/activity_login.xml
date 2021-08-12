@@ -16,26 +16,24 @@
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <EditText
         android:id="@+id/edt_id"
-        android:layout_width="387dp"
+        android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_marginTop="60dp"
         android:ems="10"
         android:hint="아이디를 입력하세요"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.48"
-        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
         android:id="@+id/edt_pw"
-        android:layout_width="386dp"
+        android:layout_width="0dp"
         android:layout_height="58dp"
         android:layout_marginTop="28dp"
         android:ems="10"
@@ -55,7 +53,6 @@
         android:text="login"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/edt_pw"
-        app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="@+id/edt_pw"
         app:layout_constraintTop_toBottomOf="@+id/edt_pw" />
 
@@ -73,13 +70,27 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="289dp"
+        android:layout_width="0dp"
         android:layout_height="102dp"
         android:layout_marginTop="68dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/teamimg" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

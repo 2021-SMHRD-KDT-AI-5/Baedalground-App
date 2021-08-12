@@ -24,8 +24,6 @@ import java.util.Map;
 
 public class Join extends AppCompatActivity {
 
-
-
     EditText edt_joinid, edt_nick, edt_joinpw, edt_checkpw, edt_address, edt_age;
     CheckBox cb_man, cb_women;
     Button btn_check, btn_join;
@@ -59,7 +57,6 @@ public class Join extends AppCompatActivity {
                 }
             }
         });
-
 
         cb_women.setOnClickListener(new View.OnClickListener() {
             @Override

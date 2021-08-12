@@ -9,28 +9,29 @@
     <EditText
         android:id="@+id/edt_select"
         android:layout_width="290dp"
-        android:layout_height="52dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:ems="10"
-        android:hint="음식점이나 메뉴를 검색해 보세요."
+        android:hint="음식점을 검색해 보세요."
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.297"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.056" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btn_select"
-        android:layout_width="43dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="36dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:background="@drawable/dot"
         android:text="Button"
+        app:layout_constraintBottom_toBottomOf="@+id/edt_select"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.261"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toEndOf="@+id/edt_select"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/edt_select" />
 
     <ListView
         android:layout_width="409dp"

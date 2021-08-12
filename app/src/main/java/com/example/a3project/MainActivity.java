@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
         tnv = findViewById(R.id.topview);
         bnv = findViewById(R.id.bottomview);
 
-
         fragment1 = new Fragment1();
         fragment2 = new Fragment2();
         fragment3 = new Fragment3();
@@ -61,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.menu_2:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment2).commit();
-
                         break;
                     case R.id.menu_3:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment3).commit();

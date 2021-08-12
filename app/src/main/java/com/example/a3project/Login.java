@@ -3,10 +3,8 @@ package com.example.a3project;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.DownloadManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,7 +30,6 @@ public class Login extends AppCompatActivity {
 
 
     RequestQueue requestQueue;
-    StringRequest stringRequest_join;
     StringRequest stringRequest_login;
 
     @Override
@@ -50,9 +47,11 @@ public class Login extends AppCompatActivity {
         stringRequest_login = new StringRequest(Request.Method.POST, "http://172.30.1.54:8090/p3_server/LoginServlet", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                if (response.equals("1")) {
+                String[] login_arr = response.split(",");
+                if (login_arr[0].equals("1")) {
                     Intent it_login = new Intent(Login.this, MainActivity.class);
                     it_login.putExtra("id", edt_id.getText().toString());
+                    it_login.putExtra("address", login_arr[2]);
                     Toast.makeText(getApplicationContext(), "로그인성공!", Toast.LENGTH_SHORT).show();
                     startActivity(it_login);
                 }else{
@@ -80,16 +79,11 @@ public class Login extends AppCompatActivity {
         };
 
 
+
+
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if(edt_id.equals(member.getId()) && edt_pw.equals(member.getPw())){
-////                    Intent it = new Intent(); // main 으로 이동할 Intent
-////                    it.putExtra("id", R.id.edt_id);
-//                }else{
-//                    // 로그인 실패시 toast
-//                    Toast.makeText(Login.this, "로그인을 다시 실행해주세요!", Toast.LENGTH_LONG).show();
-//                }
                 requestQueue.add(stringRequest_login);
             }
         });
