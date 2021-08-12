@@ -11,9 +11,9 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="82dp"
-        android:layout_height="57dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView13"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_han"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
         app:layout_constraintHorizontal_bias="0.615"
         app:layout_constraintStart_toStartOf="@+id/guideline22"
@@ -26,13 +26,13 @@
         android:layout_width="0dp"
         android:layout_height="34dp"
         android:gravity="center"
-        android:text="한식"
+        android:text="디저트"
         app:layout_constraintBottom_toTopOf="@+id/guideline25"
         app:layout_constraintEnd_toStartOf="@+id/guideline21"
         app:layout_constraintStart_toStartOf="@+id/guideline18" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/tv_han"
         android:layout_width="0dp"
         android:layout_height="34dp"
         android:gravity="center"
@@ -46,7 +46,7 @@
         android:layout_width="0dp"
         android:layout_height="34dp"
         android:gravity="center"
-        android:text="한식"
+        android:text="치킨"
         app:layout_constraintBottom_toTopOf="@+id/guideline25"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
         app:layout_constraintStart_toStartOf="@+id/guideline22" />
@@ -56,7 +56,7 @@
         android:layout_width="0dp"
         android:layout_height="34dp"
         android:gravity="center"
-        android:text="한식"
+        android:text="양식"
         app:layout_constraintBottom_toTopOf="@+id/guideline23"
         app:layout_constraintEnd_toStartOf="@+id/guideline21"
         app:layout_constraintStart_toStartOf="@+id/guideline18" />
@@ -66,7 +66,7 @@
         android:layout_width="0dp"
         android:layout_height="34dp"
         android:gravity="center"
-        android:text="한식"
+        android:text="중식"
         app:layout_constraintBottom_toTopOf="@+id/guideline23"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
         app:layout_constraintStart_toStartOf="@+id/guideline22" />
@@ -76,7 +76,7 @@
         android:layout_width="0dp"
         android:layout_height="34dp"
         android:gravity="center"
-        android:text="한식"
+        android:text="일식"
         app:layout_constraintBottom_toTopOf="@+id/guideline19"
         app:layout_constraintEnd_toStartOf="@+id/guideline21"
         app:layout_constraintHorizontal_bias="1.0"
@@ -128,7 +128,7 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/textView9"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline22"
         app:layout_constraintTop_toTopOf="@+id/guideline24"
         app:srcCompat="@drawable/chkin" />
 
@@ -235,20 +235,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.37" />
-
-    <Button
-        android:id="@+id/btn_test"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#FAF4F4"
-        android:backgroundTint="#F6F4F4"
-        android:text="Button"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/textView13"
-        app:layout_constraintEnd_toStartOf="@+id/guideline17"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline22"
-        app:layout_constraintTop_toTopOf="@+id/guideline15"
-        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
