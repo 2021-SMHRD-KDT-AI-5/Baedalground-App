@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         tnv = findViewById(R.id.topview);
         bnv = findViewById(R.id.bottomview);
+
 
         fragment1 = new Fragment1();
         fragment2 = new Fragment2();
