@@ -17,5 +17,6 @@ public class Fragment1 extends Fragment {
         //프래그먼트 화면1
         View view = inflater.inflate(R.layout.fragment_1, container, false);
         return view;
+        //test
     }
 }
