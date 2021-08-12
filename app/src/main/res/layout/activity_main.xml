@@ -42,7 +42,7 @@
         android:id="@+id/topview"
         android:layout_width="409dp"
         android:layout_height="50dp"
-        app:labelVisibilityMode="unlabeled"
+        app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
