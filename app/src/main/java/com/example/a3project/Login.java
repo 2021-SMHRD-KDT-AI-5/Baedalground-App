@@ -45,8 +45,6 @@ public class Login extends AppCompatActivity {
         btn_login = findViewById(R.id.btn_login);
         tv_gojoin = findViewById(R.id.tv_goJoin);
 
-        memberVO member = new memberVO();
-
         requestQueue = Volley.newRequestQueue(getApplicationContext());
 
         stringRequest_login = new StringRequest(Request.Method.POST, "http://172.30.1.54:8090/p3_server/LoginServlet", new Response.Listener<String>() {
@@ -80,8 +78,6 @@ public class Login extends AppCompatActivity {
                 return params;
             }
         };
-
-
 
 
         btn_login.setOnClickListener(new View.OnClickListener() {
