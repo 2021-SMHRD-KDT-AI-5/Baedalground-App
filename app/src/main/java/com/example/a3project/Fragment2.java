@@ -34,7 +34,6 @@ public class Fragment2 extends Fragment {
         rb_1 = view.findViewById(R.id.rb_1);
         rb_2 = view.findViewById(R.id.rb_2);
         rb_3 = view.findViewById(R.id.rb_3);
-        tv_test = view.findViewById(R.id.tv_test);
         btn_test2 = view.findViewById(R.id.btn_test2);
 
 

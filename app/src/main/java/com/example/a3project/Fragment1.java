@@ -55,10 +55,6 @@ public class Fragment1 extends Fragment {
         requestQueue = Volley.newRequestQueue(getContext());
 
 
-
-
-        출처: https://mixup.tistory.com/38 [투믹스 작업장]
-
         stringRequest_search = new StringRequest(Request.Method.POST, "http://172.30.1.54:8090/p3_server/SearchServlet", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
