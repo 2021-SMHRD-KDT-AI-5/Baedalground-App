@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -32,15 +33,36 @@ import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Fragment1 extends Fragment {
 
+    private List<String> list;          // 데이터를 넣은 리스트변수
+    private ListView listView;          // 검색을 보여줄 리스트변수
+    private EditText editSearch;        // 검색어를 입력할 Input 창
+    private SearchAdapter adapter;      // 리스트뷰에 연결할 아답터
+    private ArrayList<String> arraylist;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_1, container, false);
+
+        editSearch = (EditText) view.findViewById(R.id.edt_select);
+        listView = (ListView) view.findViewById(R.id.list_view);
+
+        // 리스트를 생성한다.
+        list = new ArrayList<String>();
+
+        // 검색에 사용할 데이터을 미리 저장한다.
+        settingList();
+
+        arraylist = new ArrayList<String>();
+        arraylist.addAll(list);
+
+
 
         RequestQueue requestQueue;
 
@@ -71,13 +93,15 @@ public class Fragment1 extends Fragment {
                     try {
                         jsonObject = new JSONObject(response);
                         jsonObject.getJSONArray("0").get(0);
+                        for (int i = 0 ; i<jsonObject.length();i++){
+                            list.add(String.valueOf(jsonObject.getJSONArray(String.valueOf(i)).get(3)));
+                        }
+                        adapter = new SearchAdapter(list,getContext());
 
-                        Log.d("test", String.valueOf(jsonObject.getJSONArray("0").get(0)));
-                        Log.d("test", String.valueOf(jsonObject.getJSONArray("0").get(1)));
-                        Log.d("test", String.valueOf(jsonObject.getJSONArray("0").get(2)));
-                        Log.d("test", String.valueOf(jsonObject.getJSONArray("0").get(3)));
-                        Log.d("test", String.valueOf(jsonObject.getJSONArray("0").get(4)));
-                        Log.d("test", String.valueOf(jsonObject.getJSONArray("0").get(5)));
+                        // 리스트뷰에 아답터를 연결한다.
+                        listView.setAdapter(adapter);
+
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -110,10 +134,13 @@ public class Fragment1 extends Fragment {
             @Override
             public void onClick(View v) {
                 requestQueue.add(stringRequest_search);
+
             }
         });
 
         return view;
 
+    }
+    private void settingList() {
     }
 }

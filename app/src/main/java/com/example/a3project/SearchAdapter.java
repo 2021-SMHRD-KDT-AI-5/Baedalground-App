@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,7 +23,9 @@ public class SearchAdapter extends BaseAdapter {
     private Context context;
     private List<String> list;
     private LayoutInflater inflate;
-    private RecyclerView.ViewHolder holder;
+    private ViewHolder viewHolder;
+
+
 
 
     public SearchAdapter(List<String> list, Context context){
@@ -38,17 +41,17 @@ public class SearchAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int i) {
-        return i;
+        return null;
     }
 
     @Override
     public long getItemId(int i) {
-        return i;
+        return 0;
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        View view = convertView;
+    public View getView(int position, View convertView, ViewGroup viewGroup) {
+            View view = convertView;
         // 아이템 내 View들을 저장할 Holder 생성
 
 
@@ -56,25 +59,24 @@ public class SearchAdapter extends BaseAdapter {
         if (view == null) {
             // 최초생성 View인 경우, inflation -> ViewHolder 생성 -> 해당 View에 setTag 저장
             // 데이터 넣기
-            view = LayoutInflater.from(context).inflate(R.layout.listview_item, parent, false);
+            convertView = inflate.inflate(R.layout.select_listview,null);
 
-            holder = new RecyclerView.ViewHolder();
-            holder.label = view.findViewById(R.id.label);
+            viewHolder = new ViewHolder();
+            viewHolder.label = (TextView) convertView.findViewById(R.id.label);
 
-            // 해당 View에 setTag로 Holder 객체 저장
-            view.setTag(holder);
+            convertView.setTag(viewHolder);
         } else {
             // ConvertView가 이미 생성된적 있다면, 저장되어있는 Holder 가져오기
-            holder = (RecyclerView.ViewHolder) convertView.getTag();
+            viewHolder = (ViewHolder)convertView.getTag();
         }
 
         // Holder 객체 내의 뷰(TextView,ImageView)를 세팅
-        ListView_Item item = items.get(position);
-        holder.number.setText(String.valueOf(position + 1));
-        holder.title.setText(item.getTitle());
-        holder.image.setImageResource(item.getImage());
+        viewHolder.label.setText(list.get(position));
 
-        // 해당 View 반납 필수
-        return view;
+        return convertView;
     }
+    class ViewHolder{
+
+    }
+
 }
