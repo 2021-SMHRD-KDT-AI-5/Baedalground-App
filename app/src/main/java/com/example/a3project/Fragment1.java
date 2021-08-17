@@ -3,16 +3,20 @@ package com.example.a3project;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -20,87 +24,75 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.nio.ByteBuffer;
-import java.nio.CharBuffer;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Fragment1 extends Fragment {
 
-    private List<String> list;          // 데이터를 넣은 리스트변수
-    private ListView listView;          // 검색을 보여줄 리스트변수
-    private EditText editSearch;        // 검색어를 입력할 Input 창
-    private SearchAdapter adapter;      // 리스트뷰에 연결할 아답터
-    private ArrayList<String> arraylist;
+    RequestQueue requestQueue;
+
+    StringRequest stringRequest_search;
+    StringRequest stringRequest_menu;
+
+    String search_menu;
+
+
+    EditText edt_select;
+    Button btn_select;
+
+    RecyclerView rv_search;
+
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_1, container, false);
 
-        editSearch = (EditText) view.findViewById(R.id.edt_select);
-        listView = (ListView) view.findViewById(R.id.list_view);
-
-        // 리스트를 생성한다.
-        list = new ArrayList<String>();
-
-        // 검색에 사용할 데이터을 미리 저장한다.
-        settingList();
-
-        arraylist = new ArrayList<String>();
-        arraylist.addAll(list);
-
-
-
-        RequestQueue requestQueue;
-
-        StringRequest stringRequest_search;
-
-        EditText edt_select;
-        Button btn_select;
-
         edt_select = view.findViewById(R.id.edt_select);
         btn_select = view.findViewById(R.id.btn_select);
 
+        rv_search = view.findViewById(R.id.rv_search);
+
+        ArrayList<JSONArray> list = new ArrayList<>();
+        ArrayList<JSONArray> list_menu = new ArrayList<>();
+
         requestQueue = Volley.newRequestQueue(getContext());
 
+        GestureDetector gestureDetector = new GestureDetector(getContext(), new GestureDetector.SimpleOnGestureListener(){
+            @Override
+            public boolean onSingleTapUp(MotionEvent e) {
+                return true;
+            }
+        });
 
         stringRequest_search = new StringRequest(Request.Method.POST, "http://172.30.1.54:8090/p3_server/SearchServlet", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
-                byte[] byMsg = response.getBytes();
-                Charset utf8Charset = Charset.forName("utf-8");
-                CharBuffer charBuffer = utf8Charset.decode(ByteBuffer.wrap(byMsg));
-                response = charBuffer.toString();
-
                 if (response!=null) {
-                    Toast.makeText(getContext(), "검색 성공!", Toast.LENGTH_SHORT).show();
                     JSONObject jsonObject = null;
-
                     try {
                         jsonObject = new JSONObject(response);
-                        jsonObject.getJSONArray("0").get(0);
-                        for (int i = 0 ; i<jsonObject.length();i++){
-                            list.add(String.valueOf(jsonObject.getJSONArray(String.valueOf(i)).get(3)));
+//                        jsonObject.getJSONArray("0").get(0);
+
+                        for(int i=0; i<jsonObject.length(); i++){
+                            list.add(jsonObject.getJSONArray(String.valueOf(i)));
                         }
-                        adapter = new SearchAdapter(list,getContext());
 
-                        // 리스트뷰에 아답터를 연결한다.
-                        listView.setAdapter(adapter);
+                        rv_search.setLayoutManager(new LinearLayoutManager(getContext()));
 
+                        SearchAdapter adapter = new SearchAdapter(list);
+                        rv_search.setAdapter(adapter);
+
+                        Log.d("test", jsonObject.getJSONArray("0").get(2).toString());
 
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -128,19 +120,97 @@ public class Fragment1 extends Fragment {
             }
         };
 
+        stringRequest_menu = new StringRequest(Request.Method.POST, "http://172.30.1.54:8090/p3_server/MenuServlet", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if (response!=null) {
+                    JSONObject jsonObject_menu = null;
+                    try {
+                        jsonObject_menu = new JSONObject(response);
 
+                        for(int i=0; i<jsonObject_menu.length(); i++){
+                            list_menu.add(jsonObject_menu.getJSONArray(String.valueOf(i)));
+                        }
+
+                        Log.d("test", jsonObject_menu.getJSONArray("0").get(1).toString());
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }else{
+                    Toast.makeText(getContext(), "검색 실패...", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getContext(), "error", Toast.LENGTH_SHORT).show();
+                error.printStackTrace();
+            }
+        })
+        {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+
+                params.put("search_menu", search_menu);
+
+                return params;
+            }
+        };
 
         btn_select.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                list.clear();
                 requestQueue.add(stringRequest_search);
+            }
+        });
+
+        rv_search.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+            @Override
+            public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
+                View childView = rv.findChildViewUnder(e.getX(), e.getY());
+
+                if(childView != null && gestureDetector.onTouchEvent(e)){
+                    int currentPosition = rv.getChildAdapterPosition(childView);
+
+                    JSONArray currentItem = list.get(currentPosition);
+
+//                    검색 결과 클릭하면 메뉴정보 서버에서 알아오기
+
+                    try {
+                        search_menu = currentItem.get(2).toString();
+
+                        requestQueue.add(stringRequest_menu);
+
+                        Intent it_menu = new Intent(getActivity(), res_menu.class);
+                        it_menu.putExtra("menu", list_menu);
+                        startActivity(it_menu);
+
+                        Log.d("menu_test", list_menu.toString());
+                        
+                        return true;
+
+                    } catch (JSONException jsonException) {
+                        jsonException.printStackTrace();
+                    }
+                }
+                return false;
+            }
+
+            @Override
+            public void onTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
+
+            }
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
 
             }
         });
 
         return view;
 
-    }
-    private void settingList() {
     }
 }

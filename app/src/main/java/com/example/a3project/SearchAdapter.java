@@ -1,82 +1,78 @@
 package com.example.a3project;
 
-import android.app.Activity;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.EditText;
-import android.widget.SearchView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager2.adapter.FragmentViewHolder;
 
-import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
 
-public class SearchAdapter extends BaseAdapter {
+import java.util.ArrayList;
 
-    private Context context;
-    private List<String> list;
-    private LayoutInflater inflate;
-    private ViewHolder viewHolder;
+public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder> {
 
+    private ArrayList<JSONArray> sData;
 
+    //  아이템뷰 저장하는 뷰홀더 클래스
+    public class ViewHolder extends RecyclerView.ViewHolder{
+        ImageView iv_res;
+        TextView tv_resName, tv_resEtc;
 
+        ImageView simg;
+        TextView stv1, stv2;
 
-    public SearchAdapter(List<String> list, Context context){
-        this.list = list;
-        this.context = context;
-        this.inflate = LayoutInflater.from(context);
+        ViewHolder(View itemView){
+            super(itemView);
+
+            simg = itemView.findViewById(R.id.simg);
+            stv1 = itemView.findViewById(R.id.stv1);
+            stv2 = itemView.findViewById(R.id.stv2);
+        }
     }
 
-    @Override
-    public int getCount() {
-        return list.size();
+    SearchAdapter(ArrayList<JSONArray> list){
+        sData = list;
     }
 
+    //  아이템 뷰 위해 뷰홀더 객체 생성해서 리턴
     @Override
-    public Object getItem(int i) {
-        return null;
+    public SearchAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        Context context = parent.getContext();
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        View view = inflater.inflate(R.layout.rv_search_item, parent, false);
+        SearchAdapter.ViewHolder vh = new SearchAdapter.ViewHolder(view);
+
+        return vh;
     }
 
+    //  position 해당하는 데이터 아이템뷰에 표시
     @Override
-    public long getItemId(int i) {
-        return 0;
-    }
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        String sp_name, sp_addr;
+        try {
+            sp_name = sData.get(position).get(2).toString();
+            sp_addr = sData.get(position).get(3).toString();
 
-    @Override
-    public View getView(int position, View convertView, ViewGroup viewGroup) {
-            View view = convertView;
-        // 아이템 내 View들을 저장할 Holder 생성
+            holder.simg.setImageResource(R.drawable.chicken);
+            holder.stv1.setText(sp_name);
+            holder.stv2.setText(sp_addr);
 
-
-        // convertView는 생성된적이 없으면 Null을 반환, 최초생성시 Null이므로 최초생성인지 판단
-        if (view == null) {
-            // 최초생성 View인 경우, inflation -> ViewHolder 생성 -> 해당 View에 setTag 저장
-            // 데이터 넣기
-            convertView = inflate.inflate(R.layout.select_listview,null);
-
-            viewHolder = new ViewHolder();
-//            viewHolder.label = (TextView) convertView.findViewById(R.id.label);
-
-            convertView.setTag(viewHolder);
-        } else {
-            // ConvertView가 이미 생성된적 있다면, 저장되어있는 Holder 가져오기
-            viewHolder = (ViewHolder)convertView.getTag();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
 
-        // Holder 객체 내의 뷰(TextView,ImageView)를 세팅
-//        viewHolder.label.setText(list.get(position));
-
-        return convertView;
     }
-    class ViewHolder{
 
+    @Override
+    public int getItemCount() {
+        return sData.size();
     }
+
 
 }

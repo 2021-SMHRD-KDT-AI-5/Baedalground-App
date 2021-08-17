@@ -4,22 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:overScrollMode="ifContentScrolls"
     tools:context=".Fragment1">
 
     <EditText
         android:id="@+id/edt_select"
         android:layout_width="290dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="36dp"
         android:ems="10"
         android:hint="음식점을 검색해 보세요."
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.297"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_select"
@@ -33,15 +32,18 @@
         app:layout_constraintStart_toEndOf="@+id/edt_select"
         app:layout_constraintTop_toTopOf="@+id/edt_select" />
 
-    <ListView
-        android:id="@+id/list_view"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_search"
+        android:layout_width="410dp"
+        android:layout_height="544dp"
+        android:layout_marginTop="30dp"
+        android:clipChildren="true"
+        android:contextClickable="false"
+        android:scrollbars="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edt_select"
-        app:layout_constraintVertical_bias="0.0" />
+        tools:itemCount="9"
+        tools:listitem="@layout/rv_search_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

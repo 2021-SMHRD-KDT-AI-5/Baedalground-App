@@ -1,14 +1,12 @@
 package com.example.a3project;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -25,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     Fragment5 fragment5;
     Fragment6 fragment6;
 
+    Button btn_logo, btn_login2, btn_logout2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,10 +40,14 @@ public class MainActivity extends AppCompatActivity {
         fragment5 = new Fragment5();
         fragment6 = new Fragment6();
 
+        btn_logo = findViewById(R.id.btn_logo);
+        btn_login2 = findViewById(R.id.btn_login2);
+        btn_logout2 = findViewById(R.id.btn_logout);
+
         Intent it_login = getIntent();
         if(it_login.getStringExtra("id")!=null){
-            tnv.getMenu().getItem(2).setVisible(false);
-            tnv.getMenu().getItem(3).setVisible(true);
+            btn_login2.setVisibility(View.GONE);
+            btn_logout2.setVisibility(View.VISIBLE);
         }
 
         /// 밖에다 놔두면 처음 화면에 띄워짐
@@ -74,23 +78,31 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-        tnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+
+        btn_login2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onNavigationItemSelected(MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.home:  // tab1이라면
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment6).commit();
-                        break;
-                    case R.id.login:
-                        Intent it_login = new Intent(MainActivity.this, Login.class);
-                        startActivity(it_login);
-                        break;
-                }
-                return true;
-
+            public void onClick(View v) {
+                Intent it_login = new Intent(MainActivity.this, Login.class);
+                startActivity(it_login);
             }
+        });
+
+        btn_logout2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                it_login.removeExtra("id");
+                btn_login2.setVisibility(View.VISIBLE);
+                btn_logout2.setVisibility(View.GONE);
+            }
+        });
 
 
+        btn_logo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment6).commit();
+            }
         });
     }
 }
