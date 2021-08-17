@@ -62,7 +62,7 @@ public class SearchAdapter extends BaseAdapter {
             convertView = inflate.inflate(R.layout.select_listview,null);
 
             viewHolder = new ViewHolder();
-            viewHolder.label = (TextView) convertView.findViewById(R.id.label);
+//            viewHolder.label = (TextView) convertView.findViewById(R.id.label);
 
             convertView.setTag(viewHolder);
         } else {
@@ -71,7 +71,7 @@ public class SearchAdapter extends BaseAdapter {
         }
 
         // Holder 객체 내의 뷰(TextView,ImageView)를 세팅
-        viewHolder.label.setText(list.get(position));
+//        viewHolder.label.setText(list.get(position));
 
         return convertView;
     }
