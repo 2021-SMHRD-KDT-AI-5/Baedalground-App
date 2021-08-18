@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
@@ -31,6 +32,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -128,11 +130,15 @@ public class Fragment1 extends Fragment {
                     try {
                         jsonObject_menu = new JSONObject(response);
 
-                        for(int i=0; i<jsonObject_menu.length(); i++){
-                            list_menu.add(jsonObject_menu.getJSONArray(String.valueOf(i)));
-                        }
+//                        for(int i=0; i<jsonObject_menu.length(); i++){
+//                            list_menu.add(jsonObject_menu.getJSONArray(String.valueOf(i)));
+//                        }
 
-                        Log.d("test", jsonObject_menu.getJSONArray("0").get(1).toString());
+                        Intent it_menu = new Intent(getActivity(), res_menu.class);
+
+                        it_menu.putExtra("list_menu", String.valueOf(jsonObject_menu));
+
+                        startActivity(it_menu);
 
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -184,12 +190,6 @@ public class Fragment1 extends Fragment {
 
                         requestQueue.add(stringRequest_menu);
 
-                        Intent it_menu = new Intent(getActivity(), res_menu.class);
-                        it_menu.putExtra("menu", list_menu);
-                        startActivity(it_menu);
-
-                        Log.d("menu_test", list_menu.toString());
-                        
                         return true;
 
                     } catch (JSONException jsonException) {

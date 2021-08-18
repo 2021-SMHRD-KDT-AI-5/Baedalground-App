@@ -14,12 +14,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
 public class menu_table_Adapter extends RecyclerView.Adapter<menu_table_Adapter.ViewHolder> {
 
-    private ArrayList<String> mData;
+    private JSONObject mData;
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView iv_menu;
@@ -34,7 +35,7 @@ public class menu_table_Adapter extends RecyclerView.Adapter<menu_table_Adapter.
         }
     }
 
-    menu_table_Adapter(ArrayList<String> list){ mData = list; }
+    menu_table_Adapter(JSONObject list){ mData = list; }
 
     @Override
     public menu_table_Adapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -49,20 +50,25 @@ public class menu_table_Adapter extends RecyclerView.Adapter<menu_table_Adapter.
 
     @Override
     public void onBindViewHolder(menu_table_Adapter.ViewHolder holder, int position) {
-        String name, price;
+        String menu_img, name, price;
 
-            name = mData.get(position);
-            price = mData.get(position);
+        try {
+            menu_img = mData.getJSONArray(String.valueOf(position)).get(1).toString();
+            name = mData.getJSONArray(String.valueOf(position)).get(2).toString();
+            price = mData.getJSONArray(String.valueOf(position)).get(3).toString();
 
+            holder.iv_menu.setImageResource(R.drawable.chicken);
             holder.tv_menu_name.setText(name);
             holder.tv_menu_price.setText(price);
-            holder.iv_menu.setImageResource(R.drawable.chicken);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
     }
 
     @Override
     public int getItemCount() {
-        return mData.size();
+        return mData.length();
     }
 
 

@@ -12,9 +12,10 @@ import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class res_menu extends AppCompatActivity {
+public class res_menu extends AppCompatActivity implements Serializable {
 
     Fragment_res_name fragment_res_name;
 
@@ -48,16 +49,25 @@ public class res_menu extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
 
         Intent it = getIntent();
-        String menu = it.getStringExtra("menu");
+//        String menu = it.getStringExtra("menu");
+//        Log.d("menu_test", menu);
 
-        Bundle bundle = new Bundle();
+        Bundle bundle = it.getExtras();
+        bundle.getSerializable("list_menu");
 
-        ArrayList<String> testarr = new ArrayList<String>();
-        testarr.add(menu);
-        testarr.add(menu);
+        Log.d("bundle_test", bundle.getSerializable("list_menu").toString());
+        
+        
+        
+//        Bundle bundle = new Bundle();
 
-        bundle.putSerializable("res", testarr);
+//        ArrayList<String> menu_list = new ArrayList<String>();
+//        menu_list.add(menu);
+//        menu_list.add(menu);
+
+//        bundle.putSerializable("res", menu_list);
         mFragmentList[0].setArguments(bundle);
+        mFragmentList[1].setArguments(bundle);
     }
 
 }
