@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -15,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
     BottomNavigationView tnv;
     //  하단바
     BottomNavigationView bnv;
+    TextView tv_name,tv_address;
+    EditText edt_nick,edt_address;
 
     Fragment1 fragment1;
     Fragment2 fragment2;
@@ -32,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
 
         tnv = findViewById(R.id.topview);
         bnv = findViewById(R.id.bottomview);
+        tv_name = findViewById(R.id.tv_name);
+        tv_address = findViewById(R.id.tv_address);
+        edt_nick = findViewById(R.id.edt_nick);
+        edt_address = findViewById(R.id.edt_address);
 
         fragment1 = new Fragment1();
         fragment2 = new Fragment2();
@@ -94,6 +102,8 @@ public class MainActivity extends AppCompatActivity {
                 it_login.removeExtra("id");
                 btn_login2.setVisibility(View.VISIBLE);
                 btn_logout2.setVisibility(View.GONE);
+                tv_name.setText(edt_nick.getText().toString());
+                tv_address.setText(edt_address.getText().toString());
             }
         });
 
