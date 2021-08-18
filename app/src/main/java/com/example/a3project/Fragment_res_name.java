@@ -18,6 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -36,19 +38,23 @@ public class Fragment_res_name extends Fragment {
         recyclerView = view.findViewById(R.id.menu_container);
 
         Bundle bundle = getArguments();
-        ArrayList<String> list = bundle.getStringArrayList("res");
 
-        Log.d("restest", list.get(0) + list.get(1));
+        try {
+            JSONObject menu = new JSONObject(bundle.getSerializable("list_menu").toString());
 
-        tv_resmenu_name.setText(list.get(0));
+            Log.d("test Log", menu.getJSONArray("0").get(0).toString());
 
-        Toast.makeText(getContext(), tv_resmenu_name.getText().toString(), Toast.LENGTH_SHORT).show();
+            tv_resmenu_name.setText(menu.getJSONArray("0").get(0).toString());
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            Toast.makeText(getContext(), tv_resmenu_name.getText().toString(), Toast.LENGTH_SHORT).show();
 
-        menu_table_Adapter adapter= new menu_table_Adapter(list);
-        recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+            menu_table_Adapter adapter= new menu_table_Adapter(menu);
+            recyclerView.setAdapter(adapter);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
         return view;
     }
