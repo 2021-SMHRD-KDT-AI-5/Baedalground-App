@@ -83,7 +83,6 @@ public class Fragment1 extends Fragment {
                     JSONObject jsonObject = null;
                     try {
                         jsonObject = new JSONObject(response);
-//                        jsonObject.getJSONArray("0").get(0);
 
                         for(int i=0; i<jsonObject.length(); i++){
                             list.add(jsonObject.getJSONArray(String.valueOf(i)));
@@ -129,15 +128,13 @@ public class Fragment1 extends Fragment {
                     JSONObject jsonObject_menu = null;
                     try {
                         jsonObject_menu = new JSONObject(response);
-
-//                        for(int i=0; i<jsonObject_menu.length(); i++){
-//                            list_menu.add(jsonObject_menu.getJSONArray(String.valueOf(i)));
-//                        }
+                        jsonObject_menu.getJSONObject("menu_DTO");
 
                         Intent it_menu = new Intent(getActivity(), res_menu.class);
 
-                        it_menu.putExtra("list_menu", String.valueOf(jsonObject_menu));
-
+                        it_menu.putExtra("list_menu", jsonObject_menu.getJSONObject("menu_DTO").toString());
+                        it_menu.putExtra("list_res_info", jsonObject_menu.getJSONObject("menu_info_DTO").toString());
+//                        Log.d("res_info_test", jsonObject_menu.getJSONObject("menu_info_DTO").toString());
                         startActivity(it_menu);
 
                     } catch (JSONException e) {

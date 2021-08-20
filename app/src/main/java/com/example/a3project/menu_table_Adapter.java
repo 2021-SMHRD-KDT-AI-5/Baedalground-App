@@ -1,6 +1,7 @@
 package com.example.a3project;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,6 +34,7 @@ public class menu_table_Adapter extends RecyclerView.Adapter<menu_table_Adapter.
             iv_menu = itemView.findViewById(R.id.iv_menu);
             tv_menu_name = itemView.findViewById(R.id.tv_menu_name);
             tv_menu_price = itemView.findViewById(R.id.tv_menu_price);
+            btn_menu_add = itemView.findViewById(R.id.btn_menu_add);
         }
     }
 
@@ -57,9 +60,25 @@ public class menu_table_Adapter extends RecyclerView.Adapter<menu_table_Adapter.
             name = mData.getJSONArray(String.valueOf(position)).get(2).toString();
             price = mData.getJSONArray(String.valueOf(position)).get(3).toString();
 
+            JSONArray od_add = new JSONArray(new String[]{name, price});
+
             holder.iv_menu.setImageResource(R.drawable.chicken);
             holder.tv_menu_name.setText(name);
             holder.tv_menu_price.setText(price);
+
+            holder.btn_menu_add.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    try {
+                        JSONObject order_add = new JSONObject();
+                        order_add.put("0", od_add);
+//                        Toast.makeText(v.getContext(), name, Toast.LENGTH_SHORT).show();
+                        Log.d("add list test", order_add.toString());
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
         } catch (JSONException e) {
             e.printStackTrace();
         }

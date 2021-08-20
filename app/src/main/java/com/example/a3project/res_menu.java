@@ -57,15 +57,6 @@ public class res_menu extends AppCompatActivity implements Serializable {
 
         Log.d("bundle_test", bundle.getSerializable("list_menu").toString());
         
-        
-        
-//        Bundle bundle = new Bundle();
-
-//        ArrayList<String> menu_list = new ArrayList<String>();
-//        menu_list.add(menu);
-//        menu_list.add(menu);
-
-//        bundle.putSerializable("res", menu_list);
         mFragmentList[0].setArguments(bundle);
         mFragmentList[1].setArguments(bundle);
     }

@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,9 +30,13 @@ public class Fragment_res_info extends Fragment {
 
         Bundle bundle =  getArguments();
         try {
-            JSONObject res_info_name = new JSONObject(bundle.getSerializable("list_menu").toString());
+            JSONObject res_info_name = new JSONObject(bundle.getSerializable("list_res_info").toString());
+
+            Log.d("res_info", res_info_name.getJSONArray("0").get(0).toString());
 
             tv_res_info_name.setText(res_info_name.getJSONArray("0").get(0).toString());
+            tv_res_info_addr.setText(res_info_name.getJSONArray("0").get(1).toString());
+            tv_res_info_tel.setText(res_info_name.getJSONArray("0").get(2).toString());
 
         } catch (JSONException e) {
             e.printStackTrace();
