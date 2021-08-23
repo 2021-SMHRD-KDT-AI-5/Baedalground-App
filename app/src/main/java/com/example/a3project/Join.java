@@ -3,6 +3,7 @@ package com.example.a3project;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -48,6 +49,7 @@ public class Join extends AppCompatActivity {
         cb_man = findViewById(R.id.cb_man);
         cb_women = findViewById(R.id.cb_women);
 
+
         cb_man.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,6 +69,7 @@ public class Join extends AppCompatActivity {
                 }
             }
         });
+
 
         btn_check.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,11 +128,17 @@ public class Join extends AppCompatActivity {
             }
         };
 
+
+
+
         btn_join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 requestQueue.add(stringRequest_join);
             }
+
+
+
         });
 
 

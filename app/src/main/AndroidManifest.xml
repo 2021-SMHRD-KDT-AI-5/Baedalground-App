@@ -12,6 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.3Project"
         android:usesCleartextTraffic="true">
+        <activity android:name=".myorder"></activity>
+        <activity android:name=".Update" />
         <activity
             android:name=".res_menu"
             android:exported="true" />

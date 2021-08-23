@@ -38,8 +38,7 @@ public class MainActivity extends AppCompatActivity {
         bnv = findViewById(R.id.bottomview);
         tv_name = findViewById(R.id.tv_name);
         tv_address = findViewById(R.id.tv_address);
-        edt_nick = findViewById(R.id.edt_nick);
-        edt_address = findViewById(R.id.edt_address);
+
 
         fragment1 = new Fragment1();
         fragment2 = new Fragment2();
@@ -52,10 +51,15 @@ public class MainActivity extends AppCompatActivity {
         btn_login2 = findViewById(R.id.btn_login2);
         btn_logout2 = findViewById(R.id.btn_logout);
 
+
+
+
         Intent it_login = getIntent();
         if(it_login.getStringExtra("id")!=null){
             btn_login2.setVisibility(View.GONE);
             btn_logout2.setVisibility(View.VISIBLE);
+            Intent it_update = new Intent(MainActivity.this,Update.class);
+            it_update.putExtra("id",it_login.getStringExtra("id"));
         }
 
         /// 밖에다 놔두면 처음 화면에 띄워짐
@@ -102,8 +106,7 @@ public class MainActivity extends AppCompatActivity {
                 it_login.removeExtra("id");
                 btn_login2.setVisibility(View.VISIBLE);
                 btn_logout2.setVisibility(View.GONE);
-                tv_name.setText(edt_nick.getText().toString());
-                tv_address.setText(edt_address.getText().toString());
+
             }
         });
 
