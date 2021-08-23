@@ -42,11 +42,9 @@ public class Fragment_res_name extends Fragment {
         try {
             JSONObject menu = new JSONObject(bundle.getSerializable("list_menu").toString());
 
-            Log.d("test Log", menu.getJSONArray("0").get(0).toString());
-
             tv_resmenu_name.setText(menu.getJSONArray("0").get(0).toString());
 
-            Toast.makeText(getContext(), tv_resmenu_name.getText().toString(), Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getContext(), tv_resmenu_name.getText().toString(), Toast.LENGTH_SHORT).show();
 
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 

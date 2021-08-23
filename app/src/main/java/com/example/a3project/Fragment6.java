@@ -1,23 +1,46 @@
 package com.example.a3project;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.os.Parcelable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
-public class Fragment6 extends Fragment {
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
+
+
+public class Fragment6 extends Fragment implements View.OnClickListener {
 
     ImageView img_1,img_2,img_3,img_4,img_5,img_6;
     EditText edt_addr;
+    Button btn_1, btn_2, btn_3, btn_4, btn_5, btn_6;
+    String cate;
+
+    RequestQueue requestQueue;
+
+    StringRequest stringRequest_category;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,44 +56,89 @@ public class Fragment6 extends Fragment {
 
         edt_addr = view.findViewById(R.id.edt_address);
 
-        img_1.setOnClickListener(new View.OnClickListener() {
+        btn_1 = view.findViewById(R.id.btn_cate_1);
+        btn_2 = view.findViewById(R.id.btn_cate_2);
+        btn_3 = view.findViewById(R.id.btn_cate_3);
+        btn_4 = view.findViewById(R.id.btn_cate_4);
+        btn_5 = view.findViewById(R.id.btn_cate_5);
+        btn_6 = view.findViewById(R.id.btn_cate_6);
+
+        btn_1.setOnClickListener(this);
+        btn_2.setOnClickListener(this);
+        btn_3.setOnClickListener(this);
+        btn_4.setOnClickListener(this);
+        btn_5.setOnClickListener(this);
+        btn_6.setOnClickListener(this);
+
+        requestQueue = Volley.newRequestQueue(getContext());
+
+        stringRequest_category = new StringRequest(Request.Method.POST, "http://172.30.1.54:8090/p3_server/CateServlet", new Response.Listener<String>() {
             @Override
-            public void onClick(View v) {
+            public void onResponse(String response) {
+                if (response!=null && !response.equals("")) {
+                    JSONObject jsonObject_cate_list = null;
+                    try {
+                        jsonObject_cate_list = new JSONObject(response);
 
+
+                        Intent it_cate_search = new Intent(getContext(), Menu_category.class);
+                        it_cate_search.putExtra("cate_menu", jsonObject_cate_list.toString());
+                        startActivity(it_cate_search);
+
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }else{
+                    Toast.makeText(getContext(), "검색 실패...", Toast.LENGTH_SHORT).show();
+                }
             }
-        });
-        img_2.setOnClickListener(new View.OnClickListener() {
+        }, new Response.ErrorListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getContext(), "error", Toast.LENGTH_SHORT).show();
+                error.printStackTrace();
             }
-        });
-        img_3.setOnClickListener(new View.OnClickListener() {
+        })
+        {
             @Override
-            public void onClick(View v) {
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
 
+                params.put("category", cate);
+
+                return params;
             }
-        });
-        img_4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-        img_5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-        img_6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
+        };
 
         return view;
     }
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId()==R.id.btn_cate_1){
+            cate = "한식";
+        }
+        else if(v.getId()==R.id.btn_cate_2){
+            cate = "일식";
+        }
+        else if(v.getId()==R.id.btn_cate_3){
+            cate = "중식";
+        }
+        else if(v.getId()==R.id.btn_cate_4){
+            cate = "양식";
+        }
+        else if(v.getId()==R.id.btn_cate_5){
+            cate = "치킨";
+        }
+        else if(v.getId()==R.id.btn_cate_6) {
+            cate = "디저트";
+        }
+
+        requestQueue.add(stringRequest_category);
+
+    }
+
+
+
 }

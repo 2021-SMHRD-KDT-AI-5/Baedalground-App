@@ -18,10 +18,6 @@ public class res_menu_Adapter extends FragmentPagerAdapter {
         this.mFragmentList = mFragmentList;
     }
 
-//    public void addFragment(Fragment fragment){
-//        mFragmentList.add(fragment);
-//    }
-
     @Override
     public Fragment getItem(int position) {
         return mFragmentList[position];
@@ -36,11 +32,11 @@ public class res_menu_Adapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position){
             case 0:
-                return "First";
+                return "Menu";
             case 1:
-                return "Second";
+                return "Info";
             case 2:
-                return "Third";
+                return "Review";
             default:
                 return "";
         }

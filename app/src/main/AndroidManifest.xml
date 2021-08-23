@@ -15,6 +15,9 @@
         <activity android:name=".myorder"></activity>
         <activity android:name=".Update" />
         <activity
+            android:name=".Menu_category"
+            android:exported="true" />
+        <activity
             android:name=".res_menu"
             android:exported="true" />
         <activity

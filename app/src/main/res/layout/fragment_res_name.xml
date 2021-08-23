@@ -21,12 +21,14 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/menu_container"
         android:layout_width="320dp"
-        android:layout_height="537dp"
+        android:layout_height="450dp"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_resname_name"
-        tools:itemCount="9"
+        app:layout_constraintVertical_bias="0.32999998"
+        tools:itemCount="4"
         tools:listitem="@layout/rv_menu_item" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
