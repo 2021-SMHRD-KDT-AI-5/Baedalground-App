@@ -44,11 +44,11 @@ public class Fragment_res_name extends Fragment {
 
             tv_resmenu_name.setText(menu.getJSONArray("0").get(0).toString());
 
-//            Toast.makeText(getContext(), tv_resmenu_name.getText().toString(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), tv_resmenu_name.getText().toString(), Toast.LENGTH_SHORT).show();
 
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-            menu_table_Adapter adapter= new menu_table_Adapter(menu);
+            menu_table_Adapter adapter= new menu_table_Adapter(menu, getActivity().getApplicationContext());
             recyclerView.setAdapter(adapter);
         } catch (JSONException e) {
             e.printStackTrace();

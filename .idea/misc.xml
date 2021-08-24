@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/activity_custom_dialog.xml" value="0.33" />
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/activity_join.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/activity_login.xml" value="0.35208333333333336" />
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
@@ -12,6 +13,7 @@
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/app_bar_order_list.xml" value="0.37135416666666665" />
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/commulist.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/content_order_list.xml" value="0.37135416666666665" />
+        <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/custom_dialog.xml" value="0.37135416666666665" />
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/fragment_1.xml" value="0.16619718309859155" />
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/fragment_2.xml" value="0.25" />
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/fragment_3.xml" value="0.36666666666666664" />
@@ -30,6 +32,7 @@
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/recycler_view_item.xml" value="0.37135416666666665" />
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/recycler_view_item_1.xml" value="0.37135416666666665" />
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/rv_menu_item.xml" value="0.2421875" />
+        <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/rv_order_ing_item.xml" value="0.67" />
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/rv_search_item.xml" value="0.37135416666666665" />
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/search_item.xml" value="0.25" />
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/select_listview.xml" value="0.2421875" />

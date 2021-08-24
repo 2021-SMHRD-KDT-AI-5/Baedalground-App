@@ -128,7 +128,7 @@ public class Menu_category extends AppCompatActivity {
 
                         it_menu.putExtra("list_menu", jsonObject_menu.getJSONObject("menu_DTO").toString());
                         it_menu.putExtra("list_res_info", jsonObject_menu.getJSONObject("menu_info_DTO").toString());
-//                        Log.d("res_info_test", jsonObject_menu.getJSONObject("menu_info_DTO").toString());
+                        Log.d("res_info_test", jsonObject_menu.getJSONObject("menu_info_DTO").toString());
                         startActivity(it_menu);
 
                     } catch (JSONException e) {

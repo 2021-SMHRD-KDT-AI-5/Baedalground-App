@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.3Project"
         android:usesCleartextTraffic="true">
-        <activity android:name=".myorder"></activity>
+<!--        <activity-->
+<!--            android:name=".CustomDialog"-->
+<!--            android:exported="true" />-->
+<!--        <activity android:name=".myorder" />-->
         <activity android:name=".Update" />
         <activity
             android:name=".Menu_category"

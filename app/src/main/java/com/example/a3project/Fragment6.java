@@ -1,19 +1,20 @@
 package com.example.a3project;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
-import android.os.Parcelable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -26,21 +27,20 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
 
-public class Fragment6 extends Fragment implements View.OnClickListener {
+public class Fragment6 extends Fragment implements View.OnClickListener,MyOnClickListener {
 
     ImageView img_1,img_2,img_3,img_4,img_5,img_6;
-    EditText edt_addr;
+    TextView edt_addr;
     Button btn_1, btn_2, btn_3, btn_4, btn_5, btn_6;
     String cate;
 
     RequestQueue requestQueue;
 
-    StringRequest stringRequest_category;
+    StringRequest stringRequest_category, stringRequest_readdress;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,7 +54,7 @@ public class Fragment6 extends Fragment implements View.OnClickListener {
         img_5 = view.findViewById(R.id.img_5);
         img_6 = view.findViewById(R.id.img_6);
 
-        edt_addr = view.findViewById(R.id.edt_address);
+        edt_addr = view.findViewById(R.id.edt_addr);
 
         btn_1 = view.findViewById(R.id.btn_cate_1);
         btn_2 = view.findViewById(R.id.btn_cate_2);
@@ -70,7 +70,29 @@ public class Fragment6 extends Fragment implements View.OnClickListener {
         btn_5.setOnClickListener(this);
         btn_6.setOnClickListener(this);
 
+        String addr = "";
+
+        SharedPreferences spf = getActivity().getApplicationContext().getSharedPreferences("basic", Context.MODE_PRIVATE);
+
+        if(!spf.getString("address", "").isEmpty()){
+            addr = spf.getString("address", "");
+            edt_addr.setText(addr);
+        }else{
+            edt_addr.setText("로그인이 필요합니다");
+        }
         requestQueue = Volley.newRequestQueue(getContext());
+
+        edt_addr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!spf.getString("address", "").isEmpty()){
+                    CustomDialog customDialog = new CustomDialog(getContext());
+                    customDialog.show();
+                }
+            }
+        });
+
+
 
         stringRequest_category = new StringRequest(Request.Method.POST, "http://172.30.1.54:8090/p3_server/CateServlet", new Response.Listener<String>() {
             @Override
@@ -79,7 +101,6 @@ public class Fragment6 extends Fragment implements View.OnClickListener {
                     JSONObject jsonObject_cate_list = null;
                     try {
                         jsonObject_cate_list = new JSONObject(response);
-
 
                         Intent it_cate_search = new Intent(getContext(), Menu_category.class);
                         it_cate_search.putExtra("cate_menu", jsonObject_cate_list.toString());
@@ -106,6 +127,32 @@ public class Fragment6 extends Fragment implements View.OnClickListener {
                 Map<String, String> params = new HashMap<>();
 
                 params.put("category", cate);
+
+                return params;
+            }
+        };
+
+        stringRequest_readdress = new StringRequest(Request.Method.POST, "http://172.30.1.54:8090/p3_server/ReaddressServlet", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if (response != null) {
+                    spf.edit().putString("address", response);
+                    spf.edit().commit();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getContext(), "error", Toast.LENGTH_SHORT).show();
+//                error.printStackTrace();
+            }
+        })
+        {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+
+//                params.put("reAddr", readdress);
 
                 return params;
             }
@@ -140,5 +187,9 @@ public class Fragment6 extends Fragment implements View.OnClickListener {
     }
 
 
+    @Override
+    public void myOnClick() {
+        edt_addr.setText("reset");
+    }
 
 }

@@ -5,11 +5,14 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
 import java.io.Serializable;
@@ -56,6 +59,16 @@ public class res_menu extends AppCompatActivity implements Serializable {
         bundle.getSerializable("list_menu");
 
         Log.d("bundle_test", bundle.getSerializable("list_menu").toString());
+
+        FloatingActionButton fab = findViewById(R.id.floatingActionButton);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(res_menu.this, MainActivity.class);
+                intent.putExtra("frag_name", "frag4");
+                startActivity(intent);
+            }
+        });
         
         mFragmentList[0].setArguments(bundle);
         mFragmentList[1].setArguments(bundle);

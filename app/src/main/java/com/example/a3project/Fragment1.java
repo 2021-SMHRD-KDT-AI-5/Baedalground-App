@@ -46,13 +46,10 @@ public class Fragment1 extends Fragment {
 
     String search_menu;
 
-
     EditText edt_select;
     Button btn_select;
 
     RecyclerView rv_search;
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -174,7 +171,6 @@ public class Fragment1 extends Fragment {
             @Override
             public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
                 View childView = rv.findChildViewUnder(e.getX(), e.getY());
-
                 if(childView != null && gestureDetector.onTouchEvent(e)){
                     int currentPosition = rv.getChildAdapterPosition(childView);
 
@@ -184,12 +180,14 @@ public class Fragment1 extends Fragment {
 
                     try {
                         search_menu = currentItem.get(2).toString();
+                        Toast.makeText(getContext(), search_menu, Toast.LENGTH_SHORT).show();
 
                         requestQueue.add(stringRequest_menu);
 
                         return true;
 
                     } catch (JSONException jsonException) {
+                        Toast.makeText(getContext(), "에러", Toast.LENGTH_SHORT).show();
                         jsonException.printStackTrace();
                     }
                 }

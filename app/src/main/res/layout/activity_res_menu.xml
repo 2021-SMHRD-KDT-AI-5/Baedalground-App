@@ -50,18 +50,7 @@
         app:layout_constraintStart_toStartOf="@+id/guideline12"
         app:layout_constraintTop_toBottomOf="@+id/tv_resm_name" />
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabs"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline13"
-        app:layout_constraintStart_toStartOf="@+id/guideline12"
-        app:layout_constraintTop_toBottomOf="@+id/ratingBar">
-
-    </com.google.android.material.tabs.TabLayout>
-
-<!--    <androidx.fragment.app.FragmentContainerView-->
+    <!--    <androidx.fragment.app.FragmentContainerView-->
 <!--        android:id="@+id/frag_container"-->
 <!--        android:name="com.example.a3project.Fragment_res_name"-->
 <!--        android:layout_width="0dp"-->
@@ -70,6 +59,16 @@
 <!--        app:layout_constraintEnd_toStartOf="@+id/guideline13"-->
 <!--        app:layout_constraintStart_toStartOf="@+id/guideline12"-->
 <!--        app:layout_constraintTop_toBottomOf="@+id/tabs" />-->
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/guideline13"
+        app:layout_constraintStart_toStartOf="@+id/guideline12"
+        app:layout_constraintTop_toBottomOf="@+id/tv_od_price">
+
+    </com.google.android.material.tabs.TabLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
@@ -90,7 +89,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tabs" >
+        app:layout_constraintTop_toBottomOf="@+id/tabs">
 
     </androidx.viewpager.widget.ViewPager>
+
+    <TextView
+        android:id="@+id/tv_od_price"
+        android:layout_width="151dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="3dp"
+        android:text="#000 #001 ..."
+        app:layout_constraintEnd_toEndOf="@+id/tv_resm_name"
+        app:layout_constraintStart_toStartOf="@+id/tv_resm_name"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

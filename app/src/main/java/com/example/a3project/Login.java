@@ -1,9 +1,10 @@
 package com.example.a3project;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -50,8 +51,15 @@ public class Login extends AppCompatActivity {
                 String[] login_arr = response.split(",");
                 if (login_arr[0].equals("1")) {
                     Intent it_login = new Intent(Login.this, MainActivity.class);
-                    it_login.putExtra("id", edt_id.getText().toString());
-                    it_login.putExtra("address", login_arr[2]);
+                    it_login.putExtra("id", login_arr[2]);
+                    it_login.putExtra("address", login_arr[3]);
+
+                    SharedPreferences spf = getApplicationContext().getSharedPreferences("basic", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = spf.edit();
+                    editor.putString("id", login_arr[2].toString());
+                    editor.putString("address", login_arr[3]).toString();
+                    editor.commit();
+
                     Toast.makeText(getApplicationContext(), "로그인성공!", Toast.LENGTH_SHORT).show();
                     startActivity(it_login);
                 }else{
@@ -66,7 +74,6 @@ public class Login extends AppCompatActivity {
             }
         })
         {
-            @Nullable
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
@@ -77,9 +84,6 @@ public class Login extends AppCompatActivity {
                 return params;
             }
         };
-
-
-
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override

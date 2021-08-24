@@ -62,28 +62,17 @@ public class Update extends AppCompatActivity {
                 }
             }
         });
+
         requestQueue = Volley.newRequestQueue(getApplicationContext());
-        StringRequest_update = new StringRequest(Request.Method.POST, "http://172.30.1.3:8090/WebToon/UpdateServlet", new Response.Listener<String>() {
 
-
+        StringRequest_update = new StringRequest(Request.Method.POST, "http://172.30.1.54:8090/p3_server/UpdateServlet", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                if (response!=null) {
-                    JSONObject jsonObject_update = null;
-
-                    try {
-                        jsonObject_update = new JSONObject(response);
-
-//                        for(int i=0; i<jsonObject_menu.length(); i++){
-//                            list_menu.add(jsonObject_menu.getJSONArray(String.valueOf(i)));
-//                        }
-
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
+                if (response.equals("1")) {
+                    Toast.makeText(getApplicationContext(), "수정 성공", Toast.LENGTH_SHORT).show();
+                    finish();
                 }else{
-                    Toast.makeText(Update.this, "검색 실패...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Update.this, "다시 확인해주세요...", Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
@@ -97,8 +86,7 @@ public class Update extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                Intent it_update = getIntent();
-                params.put("id", it_update.getStringExtra("id"));
+                params.put("id", id);
                 params.put("temp_pw", temp_pw);
                 params.put("up_pw",up_pw);
                 params.put("temp_nick",temp_nick);
@@ -109,13 +97,15 @@ public class Update extends AppCompatActivity {
         btn_finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                requestQueue.add(stringRequest_update);
+                Intent it_login = getIntent();
+                id = it_login.getStringExtra("id");
+                Toast.makeText(getApplicationContext(), id, Toast.LENGTH_SHORT).show();
                 temp_pw = edt_pw2.getText().toString();
                 up_pw = update_pw.getText().toString();
                 temp_nick = update_nick.getText().toString();
                 temp_address = update_address.getText().toString();
 
-//                Toast.makeText(getApplicationContext(), "실패...", Toast.LENGTH_SHORT).show();
+                requestQueue.add(StringRequest_update);
 
             }
         });
