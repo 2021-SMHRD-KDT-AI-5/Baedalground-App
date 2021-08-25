@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="#938D8D">
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="30dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="140dp"
+        android:gravity="center|center_horizontal"
+        android:text="배달"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_amount"
+        app:layout_constraintStart_toEndOf="@+id/img_star"
+        app:layout_constraintTop_toTopOf="@+id/tv_amount" />
+
+    <ImageView
+        android:id="@+id/star3"
+        android:layout_width="22dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView34"
+        app:layout_constraintStart_toEndOf="@+id/textView34"
+        app:layout_constraintTop_toTopOf="@+id/textView34"
+        app:srcCompat="@drawable/star" />
+
+    <TextView
+        android:id="@+id/tv_speed"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="5"
+        app:layout_constraintBottom_toBottomOf="@+id/star3"
+        app:layout_constraintEnd_toEndOf="@+id/tv_reviewnick"
+        app:layout_constraintStart_toEndOf="@+id/star3"
+        app:layout_constraintTop_toTopOf="@+id/star3" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="20dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="72dp"
+        android:gravity="center|right"
+        android:text="양"
+        app:layout_constraintBottom_toBottomOf="@+id/img_star"
+        app:layout_constraintStart_toEndOf="@+id/img_star"
+        app:layout_constraintTop_toTopOf="@+id/tv_taste" />
+
+    <ImageView
+        android:id="@+id/star2"
+        android:layout_width="22dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView32"
+        app:layout_constraintEnd_toStartOf="@+id/tv_amount"
+        app:layout_constraintTop_toTopOf="@+id/textView32"
+        app:srcCompat="@drawable/star" />
+
+    <TextView
+        android:id="@+id/tv_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="60dp"
+        android:gravity="center"
+        android:text="5"
+        app:layout_constraintBottom_toBottomOf="@+id/star2"
+        app:layout_constraintStart_toEndOf="@+id/star1"
+        app:layout_constraintTop_toTopOf="@+id/star2" />
+
+    <ImageView
+        android:id="@+id/img_pp"
+        android:layout_width="51dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_review"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tv_reviewnick"
+        android:layout_width="303dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="5dp"
+        android:text="TextView"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/img_pp"
+        app:layout_constraintTop_toTopOf="@+id/img_pp" />
+
+    <ImageView
+        android:id="@+id/img_star"
+        android:layout_width="103dp"
+        android:layout_height="22dp"
+        app:layout_constraintBottom_toBottomOf="@+id/img_pp"
+        app:layout_constraintStart_toStartOf="@+id/tv_reviewnick"
+        app:srcCompat="@drawable/star5" />
+
+    <ImageView
+        android:id="@+id/star1"
+        android:layout_width="22dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView12"
+        app:layout_constraintStart_toEndOf="@+id/textView12"
+        app:layout_constraintTop_toTopOf="@+id/textView12"
+        app:srcCompat="@drawable/star" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="20dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:gravity="center|right"
+        android:text="맛"
+        app:layout_constraintBottom_toBottomOf="@+id/img_star"
+        app:layout_constraintStart_toEndOf="@+id/img_star"
+        app:layout_constraintTop_toTopOf="@+id/img_star" />
+
+    <TextView
+        android:id="@+id/tv_taste"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="5"
+        app:layout_constraintBottom_toBottomOf="@+id/star1"
+        app:layout_constraintStart_toEndOf="@+id/star1"
+        app:layout_constraintTop_toTopOf="@+id/star1" />
+
+    <TextView
+        android:id="@+id/tv_review"
+        android:layout_width="349dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="15dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/tv_speed"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/img_pp"
+        app:layout_constraintTop_toBottomOf="@+id/star1" />
+
+    <TextView
+        android:id="@+id/tv_menu1"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="10dp"
+        android:background="#E4DBDB"
+        android:backgroundTint="#CAC5C5"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/tv_review"
+        app:layout_constraintTop_toBottomOf="@+id/tv_review" />
+
+    <TextView
+        android:id="@+id/tv_menu2"
+        android:layout_width="100dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:background="#CAC5C5"
+        android:backgroundTint="#CAC5C5"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_menu1"
+        app:layout_constraintStart_toEndOf="@+id/tv_menu1"
+        app:layout_constraintTop_toTopOf="@+id/tv_menu1"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tv_menu3"
+        android:layout_width="100dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:background="#CAC5C5"
+        android:backgroundTint="#CAC5C5"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_menu2"
+        app:layout_constraintEnd_toEndOf="@+id/tv_review"
+        app:layout_constraintStart_toEndOf="@+id/tv_menu2"
+        app:layout_constraintTop_toTopOf="@+id/tv_menu2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

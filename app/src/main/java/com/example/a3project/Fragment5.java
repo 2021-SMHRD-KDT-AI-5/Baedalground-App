@@ -1,6 +1,8 @@
 package com.example.a3project;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -39,10 +41,11 @@ public class Fragment5 extends Fragment {
 
 
         Intent it_login = getActivity().getIntent();
-        Intent it_nick = getActivity().getIntent();
+
         if(it_login.getStringExtra("id")!=null){
-            tv_name.setText(it_nick.getStringExtra("nick"));
-            tv_address.setText(it_login.getStringExtra("address"));
+            SharedPreferences spf = getActivity().getApplicationContext().getSharedPreferences("basic", Context.MODE_PRIVATE);
+            tv_name.setText(spf.getString("nick", ""));
+            tv_address.setText(spf.getString("address", ""));
         }
 
 

@@ -1,23 +1,44 @@
 package com.example.a3project;
 
 public class commuVO {
-
+    // ValueObject 만들 때 필요한 것
+    // 1. 필드(변수, 클래스변수) : VO에 저장하고 싶은 자료들
     private String title;
-    private String restaurnat;
+    private String restaurant;
     private String time;
-    private String max;
+    private String min;
     private String current;
-    private String writter;
+    private String host_nick;
+    private String host_location;
+    private String content;
 
     // 2. 생성자 : 객체 생성할떄 저장 될 데이터를 절달받음
 
-    public commuVO(String title, String restaurnat, String time, String max, String current, String writter) {
+    public commuVO(String title, String restaurant, String time, String min, String current, String host_nick, String host_location, String content) {
         this.title = title;
-        this.restaurnat = restaurnat;
+        this.restaurant = restaurant;
         this.time = time;
-        this.max = max;
+        this.min = min;
         this.current = current;
-        this.writter = writter;
+        this.host_nick = host_nick;
+        this.host_location = host_location;
+        this.content = content;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getHost_location() {
+        return host_location;
+    }
+
+    public void setHost_location(String host_location) {
+        this.host_location = host_location;
     }
 
     public String getTitle() {
@@ -28,12 +49,12 @@ public class commuVO {
         this.title = title;
     }
 
-    public String getRestaurnat() {
-        return restaurnat;
+    public String getRestaurant() {
+        return restaurant;
     }
 
-    public void setRestaurnat(String restaurnat) {
-        this.restaurnat = restaurnat;
+    public void setRestaurant(String restaurant) {
+        this.restaurant = restaurant;
     }
 
     public String getTime() {
@@ -44,12 +65,12 @@ public class commuVO {
         this.time = time;
     }
 
-    public String getMax() {
-        return max;
+    public String getMin() {
+        return min;
     }
 
-    public void setMax(String max) {
-        this.max = max;
+    public void setMin(String min) {
+        this.min = min;
     }
 
     public String getCurrent() {
@@ -60,11 +81,11 @@ public class commuVO {
         this.current = current;
     }
 
-    public String getWritter() {
-        return writter;
+    public String getHost_nick() {
+        return host_nick;
     }
 
-    public void setWritter(String wWitter) {
-        this.writter = writter;
+    public void setHost_nick(String host_nick) {
+        this.host_nick = host_nick;
     }
 }

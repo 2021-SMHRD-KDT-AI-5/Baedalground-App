@@ -90,7 +90,9 @@ public class MainActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment2).commit();
                         break;
                     case R.id.menu_3:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment3).commit();
+//                        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment3).commit();
+                        Intent it_commu = new Intent(getApplicationContext(), Commu.class);
+                        startActivity(it_commu);
                         break;
                     case R.id.menu_4:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment4).commit();

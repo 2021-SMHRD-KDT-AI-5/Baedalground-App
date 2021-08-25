@@ -3,7 +3,6 @@ package com.example.a3project;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -45,7 +44,7 @@ public class Join extends AppCompatActivity {
         edt_address = findViewById(R.id.edt_address);
         edt_age = findViewById(R.id.edt_age);
         btn_check = findViewById(R.id.btn_check);
-        btn_join = findViewById(R.id.btn_join);
+        btn_join = findViewById(R.id.btn_setup);
         cb_man = findViewById(R.id.cb_man);
         cb_women = findViewById(R.id.cb_women);
 

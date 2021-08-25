@@ -24,11 +24,6 @@ public class Fragment3 extends Fragment {
 
         lv = view.findViewById(R.id.lv);
 
-        data.add(new commuVO("치맥하실분", "bbq", "7시", "4", "2", "sun"));
-        data.add(new commuVO("초밥하실분", "상무초밥", "6시", "5", "1", "yoon"));
-        data.add(new commuVO("피자드실분", "도미노피자", "6시", "5", "1", "yoon"));
-        data.add(new commuVO("돈까스드실분", "상무초밥", "6시", "5", "1", "yoon"));
-        data.add(new commuVO("참치먹으러가실분", "상무초밥", "6시", "5", "1", "yoon"));
 
 //        commuAdater adapter = new commuAdater(getApplicationContext(), R.layout.commulist, data);
         //listView에 dapater 설정

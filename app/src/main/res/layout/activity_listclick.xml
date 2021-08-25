@@ -13,6 +13,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="41dp"
         android:layout_marginEnd="10dp"
+        android:editable="false"
         android:gravity="center_vertical"
         android:hint="게시글 제목입력"
         android:textSize="16sp"
@@ -49,41 +50,19 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="80dp"
+        android:editable="false"
         android:textSize="14sp"
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/edt_title" />
 
-    <Button
-        android:id="@+id/btn_search"
-        android:layout_width="64dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginEnd="20dp"
-        android:text="검색"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/edt_restaurant"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/edt_restaurant"
-        app:layout_constraintTop_toTopOf="@+id/edt_restaurant" />
-
-    <Button
-        android:id="@+id/btn_location"
-        android:layout_width="64dp"
-        android:layout_height="36dp"
-        android:text="현재위치"
-        android:textSize="8sp"
-        app:layout_constraintBottom_toBottomOf="@+id/edt_location"
-        app:layout_constraintEnd_toEndOf="@+id/btn_search"
-        app:layout_constraintStart_toStartOf="@+id/btn_search"
-        app:layout_constraintTop_toTopOf="@+id/edt_location" />
-
     <EditText
         android:id="@+id/edt_time"
         android:layout_width="0dp"
         android:layout_height="35dp"
         android:layout_marginEnd="240dp"
+        android:editable="false"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/edt_restaurant"
@@ -94,6 +73,7 @@
         android:layout_width="0dp"
         android:layout_height="35dp"
         android:layout_marginEnd="5dp"
+        android:editable="false"
         android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/textView8"
         app:layout_constraintStart_toStartOf="@+id/edt_time"
@@ -128,21 +108,24 @@
         android:layout_height="207dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="18dp"
+        android:editable="false"
         android:gravity="top"
         android:hint="게시글을 작성해주세요"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/edt_min"
-        android:background="@drawable/memo_border"/>
+        app:layout_constraintTop_toBottomOf="@+id/edt_min" />
+<!--        android:background="@drawable/memo_border"-->
+
 
     <Button
         android:id="@+id/btn_setup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="60dp"
-        android:text="등록"
+        android:text="참여하기"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/edt_content"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="@+id/edt_content" />
 
     <TextView
@@ -159,8 +142,10 @@
         android:id="@+id/edt_location"
         android:layout_width="0dp"
         android:layout_height="35dp"
+        android:layout_marginEnd="20dp"
+        android:editable="false"
         android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@+id/btn_location"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/edt_time"
         app:layout_constraintTop_toBottomOf="@+id/edt_time" />
 
@@ -168,16 +153,22 @@
         android:id="@+id/tv_nick"
         android:layout_width="139dp"
         android:layout_height="24dp"
-        android:layout_marginStart="333dp"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginStart="261dp"
         android:gravity="right"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/edt_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toEndOf="@+id/edt_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_content" />
+
+    <TextView
+        android:id="@+id/tv_mynick"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:gravity="right"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

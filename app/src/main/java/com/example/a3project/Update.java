@@ -1,8 +1,12 @@
 package com.example.a3project;
 
+import static android.content.SharedPreferences.*;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -32,7 +36,7 @@ public class Update extends AppCompatActivity {
 
     RequestQueue requestQueue;
     StringRequest stringRequest_update;
-    private StringRequest StringRequest_update;
+    private Object Editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +50,8 @@ public class Update extends AppCompatActivity {
         update_nick = findViewById(R.id.update_nick);
         update_check = findViewById(R.id.update_check);
         btn_finish = findViewById(R.id.btn_finish);
+
+
 
 
         update_check.setOnClickListener(new View.OnClickListener() {
@@ -63,13 +69,22 @@ public class Update extends AppCompatActivity {
             }
         });
 
+
+
         requestQueue = Volley.newRequestQueue(getApplicationContext());
 
-        StringRequest_update = new StringRequest(Request.Method.POST, "http://172.30.1.54:8090/p3_server/UpdateServlet", new Response.Listener<String>() {
+        stringRequest_update = new StringRequest(Request.Method.POST, "http://172.30.1.54:8090/p3_server/UpdateServlet", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 if (response.equals("1")) {
                     Toast.makeText(getApplicationContext(), "수정 성공", Toast.LENGTH_SHORT).show();
+
+                    SharedPreferences spf = getApplicationContext().getSharedPreferences("basic", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = spf.edit();
+                    editor.putString("address",temp_address);
+                    editor.putString("nick",temp_nick);
+                    editor.commit();
+
                     finish();
                 }else{
                     Toast.makeText(Update.this, "다시 확인해주세요...", Toast.LENGTH_SHORT).show();
@@ -105,7 +120,7 @@ public class Update extends AppCompatActivity {
                 temp_nick = update_nick.getText().toString();
                 temp_address = update_address.getText().toString();
 
-                requestQueue.add(StringRequest_update);
+                requestQueue.add(stringRequest_update);
 
             }
         });

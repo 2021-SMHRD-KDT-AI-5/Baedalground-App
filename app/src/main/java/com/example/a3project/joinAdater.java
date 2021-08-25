@@ -9,28 +9,28 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class commuAdapter extends BaseAdapter {
+public class joinAdater extends BaseAdapter {
     private  Context context;
     private LayoutInflater inf;
     private  int layout;
-    private ArrayList<commuVO> data;
+    private ArrayList<joincommuVO> join_data;
 
-    public  commuAdapter(Context context, int layout, ArrayList<commuVO> data){
+    public joinAdater(Context context, int layout, ArrayList<joincommuVO> join_data){
         this.context = context;
         this.inf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.layout =layout;
-        this.data = data;
+        this.join_data = join_data;
 
     }
 
     @Override
     public int getCount() {
-        return data.size();
+        return join_data.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return data.get(i);
+        return join_data.get(i);
     }
 
     @Override
@@ -40,9 +40,6 @@ public class commuAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View convertView, ViewGroup parent) {
-
-//        final int pos = i;
-//        final Context context = parent.getContext();
         //★★★★★
         // getView는 한줄을 만들때마다 호출!
 
@@ -59,41 +56,29 @@ public class commuAdapter extends BaseAdapter {
 
         // 템플릿에 들어있는 textView 찾아오기
         // 글제목
-        TextView tv_name = convertView.findViewById(R.id.tv_title);
-        tv_name.setText(data.get(i).getTitle());
+
         //식당
-        TextView tv_restaurant = convertView.findViewById(R.id.edt_restaurant);
-        tv_restaurant.setText("식당: "+data.get(i).getRestaurant());
+        TextView tv_join_res = convertView.findViewById(R.id.tv_join_res);
+        tv_join_res.setText(join_data.get(i).getTitle());
         //시간
-        TextView tv_time = convertView.findViewById(R.id.edt_time);
-        tv_time.setText("주문시간: "+data.get(i).getTime());
-        //최대인원
-        TextView tv_max = convertView.findViewById(R.id.tv_min);
-        tv_max.setText("인원: "+data.get(i).getMin());
-        //현재인원
-        TextView tv_current = convertView.findViewById(R.id.tv_current);
-        tv_current.setText("현재인원: "+data.get(i).getCurrent());
-        //작성자
-        TextView tv_host_nick = convertView.findViewById(R.id.tv_host_nick);
-        tv_host_nick.setText("작성자: "+data.get(i).getHost_nick());
-        //작성자 위치
-        TextView tv_list_location = convertView.findViewById(R.id.tv_list_location);
-        tv_list_location.setText("작성자위치: "+data.get(i).getHost_location());
+        TextView tv_join_time = convertView.findViewById(R.id.tv_join_time);
+        tv_join_time.setText("주문시간: "+ join_data.get(i).getTime());
+        //최소인원
+        TextView tv_join_member = convertView.findViewById(R.id.tv_join_member);
+        tv_join_member.setText("인원: "+ join_data.get(i).getMember());
+        //메뉴
+        TextView tv_join_menu = convertView.findViewById(R.id.tv_join_menu);
+        tv_join_menu.setText("메뉴: "+ join_data.get(i).getOrder_menu());
+        //가격
+        TextView tv_join_price = convertView.findViewById(R.id.tv_join_price);
+        tv_join_price.setText("가격: "+ join_data.get(i).getOrder_price());
+
 
 
         // 항목을 하나하나 추가할 떄마다 findViewById를 하면 Android가 힘겨워할 수 있음
         // => 첫번째 convertView 만들대만 findViewById를 하고 다음부터는 저장돤 View를 꺼내쓰다
         // => ViewHolder 패턴
 
-//        LinearLayout cmdArea = convertView.findViewById(R.id.cmdArea);
-//        cmdArea.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent it_con = new Intent(Activity., listclick.class);
-//                startActivity(it_con);
-//            }
-//        });
-
         return convertView;
-}
+    }
 }

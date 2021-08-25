@@ -12,11 +12,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.3Project"
         android:usesCleartextTraffic="true">
-<!--        <activity-->
-<!--            android:name=".CustomDialog"-->
-<!--            android:exported="true" />-->
-<!--        <activity android:name=".myorder" />-->
-        <activity android:name=".Update" />
+        <activity
+            android:name=".write_review"
+            android:exported="true"/>
+        <activity
+            android:name=".order"
+            android:exported="true"/>
+        <activity
+            android:name=".listclick"
+            android:exported="true"/>
+        <activity
+            android:name=".joinlistSelect"
+            android:exported="true"/>
+<!--        <activity android:name=".write"/>-->
+        <activity
+            android:name=".Commu"
+            android:exported="true"/>
+        <!-- <activity -->
+        <!-- android:name=".CustomDialog" -->
+        <!-- android:exported="true" /> -->
+        <!-- <activity android:name=".myorder" /> -->
+        <activity
+            android:name=".Update"
+            android:exported="true"/>
         <activity
             android:name=".Menu_category"
             android:exported="true" />

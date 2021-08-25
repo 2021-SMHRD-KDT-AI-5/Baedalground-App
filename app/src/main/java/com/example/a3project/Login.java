@@ -51,12 +51,13 @@ public class Login extends AppCompatActivity {
                 String[] login_arr = response.split(",");
                 if (login_arr[0].equals("1")) {
                     Intent it_login = new Intent(Login.this, MainActivity.class);
-                    it_login.putExtra("id", login_arr[2]);
+                    it_login.putExtra("id", login_arr[1]);
                     it_login.putExtra("address", login_arr[3]);
 
                     SharedPreferences spf = getApplicationContext().getSharedPreferences("basic", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = spf.edit();
-                    editor.putString("id", login_arr[2].toString());
+                    editor.putString("id", login_arr[1]);
+                    editor.putString("nick", login_arr[2]);
                     editor.putString("address", login_arr[3]).toString();
                     editor.commit();
 

@@ -2,6 +2,8 @@ package com.example.a3project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,7 +29,6 @@ public class write extends AppCompatActivity {
 
     RequestQueue requestQueue;
     StringRequest stringRequest_setup; // 게시글 등록
-    StringRequest stringRequest_setting; // 게시글 셋팅
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,11 @@ public class write extends AppCompatActivity {
         btn_location = findViewById(R.id.btn_location);
         btn_setup = findViewById(R.id.btn_setup);
         tv_nick = findViewById(R.id.tv_nick);
+
+        SharedPreferences spf = getApplicationContext().getSharedPreferences("basic", MODE_PRIVATE);
+        String nick = spf.getString("nick", "");
+
+        tv_nick.setText(nick);
 
         requestQueue = Volley.newRequestQueue(getApplicationContext());
 
@@ -67,7 +73,7 @@ public class write extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 // 에러를 처리하는 메소드
                 Toast.makeText(getApplicationContext(),
-                        "게시글등록 실패!", Toast.LENGTH_SHORT).show();
+                        "게시글등록 에러!", Toast.LENGTH_SHORT).show();
             }
         }) {
             @Override
@@ -90,6 +96,8 @@ public class write extends AppCompatActivity {
             public void onClick(View view) {
                 requestQueue.add(stringRequest_setup);
 
+                Intent it = new Intent(write.this, Commu.class);
+                startActivity(it);
             }
         });
     }
