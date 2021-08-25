@@ -74,7 +74,7 @@
     <WebView
         android:id="@+id/wb_test"
         android:layout_width="409dp"
-        android:layout_height="400dp"
+        android:layout_height="350dp"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

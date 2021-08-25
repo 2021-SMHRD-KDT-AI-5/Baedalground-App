@@ -11,7 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="36dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="8dp"
         android:text="TextView"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -23,7 +23,7 @@
     <TextView
         android:id="@+id/edt_restaurant"
         android:layout_width="0dp"
-        android:layout_height="30dp"
+        android:layout_height="25dp"
         android:layout_marginStart="20dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +34,7 @@
     <TextView
         android:id="@+id/edt_time"
         android:layout_width="0dp"
-        android:layout_height="30dp"
+        android:layout_height="25dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="@+id/edt_restaurant"
         app:layout_constraintStart_toStartOf="@+id/edt_restaurant"
@@ -43,7 +43,8 @@
     <TextView
         android:id="@+id/tv_current"
         android:layout_width="120dp"
-        android:layout_height="30dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="4dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="@+id/tv_min"
         app:layout_constraintStart_toEndOf="@+id/tv_min"
@@ -53,7 +54,7 @@
     <TextView
         android:id="@+id/tv_min"
         android:layout_width="120dp"
-        android:layout_height="30dp"
+        android:layout_height="25dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="@+id/tv_list_location"
         app:layout_constraintTop_toBottomOf="@+id/tv_list_location" />
@@ -61,7 +62,8 @@
     <TextView
         android:id="@+id/tv_host_nick"
         android:layout_width="120dp"
-        android:layout_height="30dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="@+id/tv_current"
         app:layout_constraintStart_toEndOf="@+id/tv_current"
@@ -71,10 +73,20 @@
     <TextView
         android:id="@+id/tv_list_location"
         android:layout_width="0dp"
-        android:layout_height="30dp"
+        android:layout_height="25dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="@+id/edt_time"
         app:layout_constraintStart_toStartOf="@+id/edt_time"
         app:layout_constraintTop_toBottomOf="@+id/edt_time" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_current" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

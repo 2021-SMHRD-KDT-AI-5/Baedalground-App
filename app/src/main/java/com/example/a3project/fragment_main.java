@@ -69,7 +69,7 @@ public class fragment_main extends Fragment {
         wbSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
         wbSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
         wbSettings.setDomStorageEnabled(true);
-        wb_test.loadUrl("http://172.30.1.54:8090/p3_server/insert_xy.jsp");
+        wb_test.loadUrl("http://172.30.1.54:8090/p3_server/markdown_save.jsp");
 
 
 
@@ -79,7 +79,7 @@ public class fragment_main extends Fragment {
         SharedPreferences spf = getActivity().getApplicationContext().getSharedPreferences("basic", Context.MODE_PRIVATE);
         String nick = spf.getString("nick", "");
         Toast.makeText(getContext(), nick, Toast.LENGTH_SHORT).show();
-        tv_usernick.setText(nick);
+        tv_usernick.setText(nick + " 님");
 
 
         requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());

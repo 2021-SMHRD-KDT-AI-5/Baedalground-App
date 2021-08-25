@@ -39,23 +39,19 @@ public class fragment_join extends Fragment {
     RequestQueue requestQueue;
     StringRequest stringRequest_joinlistup; // 게시글 리스트업
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_join, container, false);
         tv_nickname= view.findViewById(R.id.tv_nickname);
 
-
         join_list = view.findViewById(R.id.join_list);
-
 
         requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
 
         SharedPreferences spf = getActivity().getApplicationContext().getSharedPreferences("basic", Context.MODE_PRIVATE);
         String nick = spf.getString("nick", "");
-        tv_nickname.setText(nick);
+        tv_nickname.setText(nick + " 님의 그룹");
 
         String SERVER_URL = "http://172.30.1.54:8090/p3_server/JoinListServlet?my_nick="+nick;
 
@@ -73,7 +69,6 @@ public class fragment_join extends Fragment {
 
                                 join_data.add(new joincommuVO(obj.getString("title"),obj.getString("restaurant"),obj.getString("time"),obj.getString("min"),
                                         null,null,obj.getString("time") , obj.getString("time"), null));
-
 
                             }
                             joinAdater adapter = new joinAdater(getActivity().getApplicationContext(), R.layout.joinlist, join_data);
