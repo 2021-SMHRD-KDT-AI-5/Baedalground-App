@@ -26,8 +26,10 @@
         android:id="@+id/tv_han"
         android:layout_width="0dp"
         android:layout_height="34dp"
+        android:fontFamily="@font/one"
         android:gravity="center"
         android:text="한식"
+        android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline19"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
         app:layout_constraintStart_toStartOf="@+id/guideline22" />
@@ -47,8 +49,10 @@
         android:id="@+id/textView12"
         android:layout_width="0dp"
         android:layout_height="34dp"
+        android:fontFamily="@font/one"
         android:gravity="center"
         android:text="일식"
+        android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline19"
         app:layout_constraintEnd_toStartOf="@+id/guideline21"
         app:layout_constraintHorizontal_bias="1.0"
@@ -70,8 +74,10 @@
         android:id="@+id/textView11"
         android:layout_width="0dp"
         android:layout_height="34dp"
+        android:fontFamily="@font/one"
         android:gravity="center"
         android:text="중식"
+        android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline23"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
         app:layout_constraintStart_toStartOf="@+id/guideline22" />
@@ -91,8 +97,10 @@
         android:id="@+id/textView10"
         android:layout_width="0dp"
         android:layout_height="34dp"
+        android:fontFamily="@font/one"
         android:gravity="center"
         android:text="양식"
+        android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline23"
         app:layout_constraintEnd_toStartOf="@+id/guideline21"
         app:layout_constraintStart_toStartOf="@+id/guideline18" />
@@ -112,8 +120,10 @@
         android:id="@+id/textView9"
         android:layout_width="0dp"
         android:layout_height="34dp"
+        android:fontFamily="@font/one"
         android:gravity="center"
         android:text="치킨"
+        android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline25"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
         app:layout_constraintStart_toStartOf="@+id/guideline22" />
@@ -133,8 +143,10 @@
         android:id="@+id/stv2"
         android:layout_width="0dp"
         android:layout_height="34dp"
+        android:fontFamily="@font/one"
         android:gravity="center"
         android:text="디저트"
+        android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline25"
         app:layout_constraintEnd_toStartOf="@+id/guideline21"
         app:layout_constraintStart_toStartOf="@+id/guideline18" />
@@ -220,16 +232,17 @@
         android:id="@+id/edt_addr"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
         android:ems="10"
+        android:fontFamily="@font/titleone"
         android:gravity="center"
         android:hint="주소설정"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/guideline15"
         app:layout_constraintEnd_toStartOf="@+id/guideline21"
         app:layout_constraintStart_toStartOf="@+id/guideline22"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="?attr/selectableItemBackground"
-        android:clickable="true"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_cate_1"
@@ -244,8 +257,10 @@
         android:textColor="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/tv_han"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline22"
-        app:layout_constraintTop_toTopOf="@+id/img_1" />
+        app:layout_constraintTop_toTopOf="@+id/img_1"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btn_cate_2"

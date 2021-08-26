@@ -27,6 +27,7 @@
       android:layout_height="wrap_content"
       android:layout_marginStart="16dp"
       android:layout_marginTop="20dp"
+      android:fontFamily="@font/oneb"
       android:textSize="20dp"
       app:layout_constraintStart_toEndOf="@+id/iv_menu"
       app:layout_constraintTop_toTopOf="@+id/iv_menu"
@@ -37,6 +38,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginBottom="16dp"
+      android:fontFamily="@font/oner"
       app:layout_constraintBottom_toBottomOf="@+id/iv_menu"
       app:layout_constraintStart_toStartOf="@+id/tv_menu_name"
       tools:text="@tools:sample/lorem[4]" />
@@ -46,9 +48,11 @@
       android:layout_width="50dp"
       android:layout_height="wrap_content"
       android:layout_marginEnd="5dp"
+      android:fontFamily="@font/one"
       android:insetTop="10dp"
       android:insetBottom="10dp"
       android:text="담기"
+      android:textSize="18dp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintTop_toTopOf="parent" />

@@ -13,6 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:fontFamily="@font/titleone"
         android:text="닉네임"
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,6 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:fontFamily="@font/titleone"
         android:text="등록된 주소"
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,9 +41,11 @@
 
     <Button
         android:id="@+id/btn_update"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="237dp"
+        android:layout_height="48dp"
         android:layout_marginBottom="368dp"
+        android:backgroundTint="#F4CD56"
+        android:fontFamily="@font/one"
         android:text="개인정보변경"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,9 +54,11 @@
 
     <Button
         android:id="@+id/btn_order"
-        android:layout_width="120dp"
-        android:layout_height="49dp"
+        android:layout_width="237dp"
+        android:layout_height="48dp"
         android:layout_marginBottom="296dp"
+        android:backgroundTint="#F4CD56"
+        android:fontFamily="@font/one"
         android:text="내 주문내역"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

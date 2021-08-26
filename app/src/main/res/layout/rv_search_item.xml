@@ -27,6 +27,7 @@
       android:layout_height="wrap_content"
       android:layout_marginStart="15dp"
       android:layout_marginTop="12dp"
+      android:fontFamily="@font/one"
       app:layout_constraintStart_toEndOf="@+id/simg"
       app:layout_constraintTop_toTopOf="@+id/simg"
       tools:text="@tools:sample/lorem[3]" />
@@ -36,6 +37,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginTop="11dp"
+      android:fontFamily="@font/one"
       app:layout_constraintStart_toStartOf="@+id/stv1"
       app:layout_constraintTop_toBottomOf="@+id/stv1"
       tools:text="@tools:sample/lorem[4]" />

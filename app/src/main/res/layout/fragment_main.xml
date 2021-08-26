@@ -51,8 +51,9 @@
 
     <TextView
         android:id="@+id/tv_title"
-        android:layout_width="87dp"
+        android:layout_width="95dp"
         android:layout_height="21dp"
+        android:fontFamily="@font/titleone"
         android:text="내 주위 게시글"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,6 +65,7 @@
         android:id="@+id/tv_list_nick"
         android:layout_width="103dp"
         android:layout_height="0dp"
+        android:fontFamily="@font/titleone"
         android:gravity="bottom|right"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="@+id/searchView"

@@ -59,11 +59,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
+            android:fontFamily="@font/one"
+            android:includeFontPadding="false"
             android:insetTop="18dp"
             android:insetBottom="0dp"
             android:text="로그인"
             android:textColor="@color/black"
-            android:textStyle="bold" />
+            android:textStyle="normal" />
 
         <Button
             android:id="@+id/btn_logout"
@@ -91,12 +93,6 @@
             android:layout_width="261dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center" />
-
-        <TextView
-            android:id="@+id/textView35"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
