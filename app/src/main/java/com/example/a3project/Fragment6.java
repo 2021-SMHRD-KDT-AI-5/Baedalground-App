@@ -191,7 +191,7 @@ public class Fragment6 extends Fragment implements View.OnClickListener,MyOnClic
 
     @Override
     public void myOnClick() {
-        edt_addr.setText("reset");
+        edt_addr.setText("로그인이 필요합니다.");
     }
 
 }

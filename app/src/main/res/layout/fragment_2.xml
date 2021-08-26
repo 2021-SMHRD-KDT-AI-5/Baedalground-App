@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:backgroundTint="#80EFE160"
     android:clickable="false"
     android:clipChildren="true"
     android:clipToPadding="true"
@@ -157,14 +159,14 @@
             android:layout_width="60dp"
             android:layout_height="24dp"
             android:layout_weight="1"
+            android:fontFamily="@font/one"
             android:text="20대"
             android:textSize="12dp"
             app:layout_constraintBottom_toBottomOf="@+id/textView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.052"
             app:layout_constraintStart_toEndOf="@+id/cb_1"
-            app:layout_constraintTop_toTopOf="@+id/textView"
-            android:fontFamily="@font/one" />
+            app:layout_constraintTop_toTopOf="@+id/textView" />
 
         <CheckBox
             android:id="@+id/cb_5"

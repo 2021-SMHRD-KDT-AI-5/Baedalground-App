@@ -60,6 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:fontFamily="@font/one"
+
             android:includeFontPadding="false"
             android:insetTop="18dp"
             android:insetBottom="0dp"
@@ -68,11 +69,12 @@
             android:textStyle="normal" />
 
         <Button
-            android:id="@+id/btn_logout"
+            android:id="@+id/btn_logout_c"
             style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
+            android:fontFamily="@font/one"
             android:insetTop="18dp"
             android:insetBottom="0dp"
             android:text="로그아웃"

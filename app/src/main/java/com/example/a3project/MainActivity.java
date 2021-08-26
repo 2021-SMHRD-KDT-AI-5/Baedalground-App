@@ -2,6 +2,7 @@ package com.example.a3project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,7 +10,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
         btn_logo = findViewById(R.id.btn_logo);
         btn_login2 = findViewById(R.id.btn_login2);
-        btn_logout2 = findViewById(R.id.btn_logout);
+        btn_logout2 = findViewById(R.id.btn_logout_c);
 
 //        Intent it_addr = getIntent();
 //        it_addr.getStringExtra("address");
@@ -63,7 +63,9 @@ public class MainActivity extends AppCompatActivity {
 //        fragment6.setArguments(bundle);
 
         Intent data = getIntent();
-        if(data.getStringExtra("id")!=null){
+        SharedPreferences spf = getApplication().getApplicationContext().getSharedPreferences("basic", Context.MODE_PRIVATE);
+        String id = spf.getString("id","");
+        if(id != null){
             btn_login2.setVisibility(View.GONE);
             btn_logout2.setVisibility(View.VISIBLE);
         }
@@ -119,7 +121,6 @@ public class MainActivity extends AppCompatActivity {
                 data.removeExtra("id");
                 btn_login2.setVisibility(View.VISIBLE);
                 btn_logout2.setVisibility(View.GONE);
-                SharedPreferences spf = getSharedPreferences("basic", MODE_PRIVATE);
                 SharedPreferences.Editor editor = spf.edit();
                 editor.remove("id");
                 editor.remove("address");
