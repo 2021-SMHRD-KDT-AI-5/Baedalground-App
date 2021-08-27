@@ -5,11 +5,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
@@ -39,7 +44,6 @@ import java.util.Map;
 
 
 public class fragment_main extends Fragment {
-    ArrayList<commuVO> data = new ArrayList<>();
     ListView lv;
     Button btn_write;
     TextView tv_usernick, tv_host_nick;
@@ -50,6 +54,14 @@ public class fragment_main extends Fragment {
     RequestQueue requestQueue;
     StringRequest stringRequest_listup; // 게시글 리스트업
 
+    RecyclerView rv_commu;
+    GestureDetector gestureDetector = new GestureDetector(getContext(), new GestureDetector.SimpleOnGestureListener(){
+        @Override
+        public boolean onSingleTapUp(MotionEvent e) {
+            return true;
+        }
+    });
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup containerC,
@@ -57,6 +69,10 @@ public class fragment_main extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_main, containerC, false);
         lv = view.findViewById(R.id.lv);
+
+        rv_commu = view.findViewById(R.id.rv_commu);
+        ArrayList<JSONArray> data = new ArrayList<>();
+
         btn_write = view.findViewById(R.id.btn_write);
 
         tv_title = view.findViewById(R.id.tv_title);
@@ -70,9 +86,6 @@ public class fragment_main extends Fragment {
         wbSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
         wbSettings.setDomStorageEnabled(true);
         wb_test.loadUrl("http://172.30.1.54:8090/p3_server/markdown_save.jsp");
-
-
-
 
         tv_usernick = view.findViewById(R.id.tv_list_nick);
 
@@ -105,69 +118,95 @@ public class fragment_main extends Fragment {
                 }else{
                     wb_test.setVisibility(View.GONE);
                 }
-
             }
         });
 
-        String SERVER_URL = "http://172.30.1.54:8090/p3_server/CommunityListServlet?location=dddd";
+//        String SERVER_URL = "http://172.30.1.54:8090/p3_server/CommunityListServlet?location=dddd";
+        String SERVER_URL = "http://172.30.1.54:8090/p3_server/CommunityListServlet";
 
-        stringRequest_listup = new StringRequest(Request.Method.GET, SERVER_URL,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
+        stringRequest_listup = new StringRequest(Request.Method.POST, SERVER_URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if(response!=null){
 
-                        Log.v("글목록", response);
+                    Log.d("commu test", response.toString());
 
-                        try {
-                            JSONArray array = new JSONArray(response);
+                    JSONObject jsonObject = null;
+                    try {
+                        jsonObject = new JSONObject(response);
 
-                            for (int i = 0; i < array.length(); i++) {
+                        for(int i=0; i<jsonObject.length(); i++){
+                            data.add(jsonObject.getJSONArray(String.valueOf(i)));
 
-                                JSONObject obj = array.getJSONObject(i);
-
-                                data.add(new commuVO(obj.getString("title"), obj.getString("restaurant"), obj.getString("time"), obj.getString("min"),
-                                        null, obj.getString("host_nick"), obj.getString("location"), null));
-
-                            }
-
-                            commuAdapter adapter = new commuAdapter(getActivity(), R.layout.commulist, data);
-                            adapter.notifyDataSetChanged();
-                            //listView에 dapater 설정
-                            lv.setAdapter(adapter);
-
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
                         }
+
+//                        Log.d("commu test", data.get(0).get(1).toString());
+                        Log.d("commu test", data.get(0).toString());
+                        rv_commu.setLayoutManager(new LinearLayoutManager(getContext()));
+                        Commu_list_Adapter adapter = new Commu_list_Adapter(data);
+                        rv_commu.setAdapter(adapter);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
+
+                }else{
+                    Toast.makeText(getContext(), "리스트업 실패...", Toast.LENGTH_SHORT).show();
+                }
+            }
+        },
+        new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
 //                        Log.v("글목록", error.getMessage());
-                        Toast.makeText(getActivity(), "오류발생>>" + error, Toast.LENGTH_SHORT).show();
-                    }
-                });
-        data.clear();
+                Toast.makeText(getActivity(), "오류발생 >>" + error, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
         requestQueue.add(stringRequest_listup);
 
-
-
-
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        rv_commu.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String title = data.get(i).getTitle();
-                String host_nick = data.get(i).getHost_nick();
-//                Log.v("hhd", title+","+host_nick);
+            public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
+                View childView = rv.findChildViewUnder(e.getX(), e.getY());
+                if(childView != null && gestureDetector.onTouchEvent(e)){
+                    int currentPosition = rv.getChildAdapterPosition(childView);
+
+                    JSONArray currentItem = data.get(currentPosition);
+
+                    Toast.makeText(getContext(), currentItem.toString(), Toast.LENGTH_SHORT).show();
 
 
-                Intent it = new Intent(getContext(), listclick.class);
-                it.putExtra("host_nick", host_nick);
-                it.putExtra("title", title);
-                startActivity(it);
+
+                }
+                return false;
+            }
+
+            @Override
+            public void onTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
+
+            }
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
             }
         });
+
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                String title = data.get(i).getTitle();
+//                String host_id = data.get(i).gethost_id();
+////                Log.v("hhd", title+","+host_nick);
+//
+//                Intent it = new Intent(getContext(), listclick.class);
+//                it.putExtra("host_id", host_id);
+//                it.putExtra("title", title);
+//                startActivity(it);
+//            }
+//        });
 
         btn_write.setOnClickListener(new View.OnClickListener() {
             @Override

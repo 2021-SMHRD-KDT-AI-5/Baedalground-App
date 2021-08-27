@@ -17,22 +17,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_list_nick" />
 
-    <ListView
-        android:id="@+id/lv"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_commu"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#80EFE160"
-        android:backgroundTint="#80EFE160"
-        android:divider="@color/black"
-        android:footerDividersEnabled="false"
-        android:headerDividersEnabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wb_test">
-
-    </ListView>
+        app:layout_constraintTop_toBottomOf="@+id/wb_test"
+        tools:itemCount="5"
+        tools:listitem="@layout/rv_commu_item" />
 
     <SearchView
         android:id="@+id/searchView"

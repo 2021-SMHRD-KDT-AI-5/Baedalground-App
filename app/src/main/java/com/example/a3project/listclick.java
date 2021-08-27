@@ -54,7 +54,7 @@ public class listclick extends AppCompatActivity {
         String title = itsecond.getStringExtra("title");
         String host_nick = itsecond.getStringExtra("host_nick");
 
-        Log.v("hhd", "listclick : "+title+","+host_nick);
+//        Log.v("hhd", "listclick : "+title+","+host_nick);
 
         requestQueue = Volley.newRequestQueue(getApplicationContext());
 

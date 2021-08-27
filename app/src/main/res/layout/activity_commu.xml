@@ -95,8 +95,7 @@
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="255dp"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:text="Button" />
+            android:layout_gravity="center" />
 
         <ImageView
             android:id="@+id/iv_logo2"

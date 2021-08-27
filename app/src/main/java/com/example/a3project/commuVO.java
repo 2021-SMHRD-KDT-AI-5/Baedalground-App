@@ -4,24 +4,20 @@ public class commuVO {
     // ValueObject 만들 때 필요한 것
     // 1. 필드(변수, 클래스변수) : VO에 저장하고 싶은 자료들
     private String title;
-    private String restaurant;
+    private int restaurant;
     private String time;
-    private String min;
-    private String current;
-    private String host_nick;
-    private String host_location;
+    private int min;
+    private String host_id;
     private String content;
 
     // 2. 생성자 : 객체 생성할떄 저장 될 데이터를 절달받음
 
-    public commuVO(String title, String restaurant, String time, String min, String current, String host_nick, String host_location, String content) {
+    public commuVO(String title, int restaurant, String time, int min, String host_id, String content) {
         this.title = title;
         this.restaurant = restaurant;
         this.time = time;
         this.min = min;
-        this.current = current;
-        this.host_nick = host_nick;
-        this.host_location = host_location;
+        this.host_id = host_id;
         this.content = content;
     }
 
@@ -33,14 +29,6 @@ public class commuVO {
         this.content = content;
     }
 
-    public String getHost_location() {
-        return host_location;
-    }
-
-    public void setHost_location(String host_location) {
-        this.host_location = host_location;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -49,11 +37,11 @@ public class commuVO {
         this.title = title;
     }
 
-    public String getRestaurant() {
+    public int getRestaurant() {
         return restaurant;
     }
 
-    public void setRestaurant(String restaurant) {
+    public void setRestaurant(int restaurant) {
         this.restaurant = restaurant;
     }
 
@@ -65,27 +53,19 @@ public class commuVO {
         this.time = time;
     }
 
-    public String getMin() {
+    public int getMin() {
         return min;
     }
 
-    public void setMin(String min) {
+    public void setMin(int min) {
         this.min = min;
     }
 
-    public String getCurrent() {
-        return current;
+    public String gethost_id() {
+        return host_id;
     }
 
-    public void setCurrent(String current) {
-        this.current = current;
-    }
-
-    public String getHost_nick() {
-        return host_nick;
-    }
-
-    public void setHost_nick(String host_nick) {
-        this.host_nick = host_nick;
+    public void sethost_id(String host_id) {
+        this.host_id = host_id;
     }
 }

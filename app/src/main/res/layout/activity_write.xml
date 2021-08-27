@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tv_commu_res"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/one"
@@ -32,16 +32,16 @@
         app:layout_constraintTop_toBottomOf="@+id/edt_title" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tv_commu_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/one"
         android:text="주문시간"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/edt_time"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="@+id/tv_commu_res"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="@+id/tv_commu_res"
         app:layout_constraintTop_toTopOf="@+id/edt_time" />
 
     <EditText
@@ -54,7 +54,7 @@
         android:textSize="14sp"
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintStart_toEndOf="@+id/tv_commu_res"
         app:layout_constraintTop_toBottomOf="@+id/edt_title" />
 
     <Button
@@ -157,7 +157,7 @@
         android:text="내 위치"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/edt_location"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintStart_toStartOf="@+id/tv_commu_time"
         app:layout_constraintTop_toTopOf="@+id/edt_location" />
 
     <EditText
