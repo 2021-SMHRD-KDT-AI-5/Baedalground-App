@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     //  하단바
     BottomNavigationView bnv;
     TextView tv_name,tv_address;
+    Button btn_login_c;
 
     Fragment1 fragment1;
     Fragment2 fragment2;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         bnv = findViewById(R.id.bottomview);
         tv_name = findViewById(R.id.tv_name);
         tv_address = findViewById(R.id.tv_address);
+        btn_login_c = findViewById(R.id.btn_login_c);
 
         fragment1 = new Fragment1();
         fragment2 = new Fragment2();
@@ -51,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         btn_logo = findViewById(R.id.btn_logo);
         btn_login2 = findViewById(R.id.btn_login2);
-        btn_logout2 = findViewById(R.id.btn_logout_c);
+        btn_logout2 = findViewById(R.id.btn_logout2);
 
 //        Intent it_addr = getIntent();
 //        it_addr.getStringExtra("address");
@@ -64,11 +66,18 @@ public class MainActivity extends AppCompatActivity {
 
         Intent data = getIntent();
         SharedPreferences spf = getApplication().getApplicationContext().getSharedPreferences("basic", Context.MODE_PRIVATE);
-        String id = spf.getString("id","");
-        if(id != null){
+
+//        if(id != null){
+//            btn_login2.setVisibility(View.GONE);
+//            btn_logout2.setVisibility(View.VISIBLE);
+//        }
+        String id = data.getStringExtra("id");
+        if (id != null){
             btn_login2.setVisibility(View.GONE);
             btn_logout2.setVisibility(View.VISIBLE);
         }
+
+
 
         if(data.getStringExtra("frag_name") != null && data.getStringExtra("frag_name").equals("frag4")) {
 //            Log.d("프레그먼트", data.getStringExtra("frag_name"));
@@ -93,8 +102,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.menu_3:
 //                        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment3).commit();
-                        Intent it_commu = new Intent(getApplicationContext(), Commu.class);
-                        startActivity(it_commu);
+                        Intent data_c = new Intent(MainActivity.this,Commu.class);
+                        data_c.putExtra("id",id);
+                        startActivity(data_c);
                         break;
                     case R.id.menu_4:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment4).commit();
@@ -137,5 +147,12 @@ public class MainActivity extends AppCompatActivity {
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment6).commit();
             }
         });
+
+//        if(btn_login_c.getVisibility()==View.VISIBLE){
+//            btn_login2.setVisibility(View.VISIBLE);
+//            btn_logout2.setVisibility(View.GONE);
+//        }
+
+
     }
 }

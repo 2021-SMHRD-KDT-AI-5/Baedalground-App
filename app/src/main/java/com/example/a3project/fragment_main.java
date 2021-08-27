@@ -78,8 +78,21 @@ public class fragment_main extends Fragment {
 
         SharedPreferences spf = getActivity().getApplicationContext().getSharedPreferences("basic", Context.MODE_PRIVATE);
         String nick = spf.getString("nick", "");
-        Toast.makeText(getContext(), nick, Toast.LENGTH_SHORT).show();
-        tv_usernick.setText(nick + " 님");
+//        String id = spf.getString("id","");
+
+
+        Intent it_c = getActivity().getIntent();
+        String id = it_c.getStringExtra("id");
+        if(id != null){
+            tv_usernick.setText(nick + " 님 환영합니다.");
+        }else {
+            tv_usernick.setText("로그인이 필요합니다.");
+//            btn_login_c.setVisibility(View.VISIBLE);
+        }
+
+
+
+
 
 
         requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());

@@ -74,12 +74,17 @@ public class Fragment6 extends Fragment implements View.OnClickListener,MyOnClic
 
         String addr = "";
 
-        SharedPreferences spf = getActivity().getApplicationContext().getSharedPreferences("basic", Context.MODE_PRIVATE);
 
-        if(!spf.getString("address", "").isEmpty()){
-            addr = spf.getString("address", "");
+        SharedPreferences spf = getActivity().getApplicationContext().getSharedPreferences("basic", Context.MODE_PRIVATE);
+        addr = spf.getString("address", "");
+
+
+        Intent it_f = getActivity().getIntent();
+        String id = it_f.getStringExtra("id");
+
+        if(id != null){
             edt_addr.setText(addr);
-        }else{
+        } else {
             edt_addr.setText("로그인이 필요합니다");
         }
         requestQueue = Volley.newRequestQueue(getContext());
