@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
-    android:backgroundTint="#80EFE160"
     tools:context=".fragment_main">
 
     <Button
@@ -22,6 +21,8 @@
         android:id="@+id/lv"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#80EFE160"
+        android:backgroundTint="#80EFE160"
         android:divider="@color/black"
         android:footerDividersEnabled="false"
         android:headerDividersEnabled="false"
