@@ -72,13 +72,13 @@ public class commuAdapter extends BaseAdapter {
         tv_max.setText("인원: "+data.get(i).getMin());
         //현재인원
         TextView tv_current = convertView.findViewById(R.id.tv_current);
-        tv_current.setText("현재인원: "+data.get(i).getCurrent());
+        tv_current.setText("현재인원: "+ "null");
         //작성자
         TextView tv_host_nick = convertView.findViewById(R.id.tv_host_nick);
-        tv_host_nick.setText("작성자: "+data.get(i).getHost_nick());
+        tv_host_nick.setText("작성자: "+data.get(i).gethost_id());
         //작성자 위치
         TextView tv_list_location = convertView.findViewById(R.id.tv_list_location);
-        tv_list_location.setText("작성자위치: "+data.get(i).getHost_location());
+        tv_list_location.setText("작성자위치: "+ "null");
 
 
         // 항목을 하나하나 추가할 떄마다 findViewById를 하면 Android가 힘겨워할 수 있음

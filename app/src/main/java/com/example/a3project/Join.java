@@ -54,7 +54,7 @@ public class Join extends AppCompatActivity {
             public void onClick(View v) {
                 if (cb_man.isChecked()) {
                     cb_women.setChecked(false);
-                    gender = cb_man.getText().toString();
+                    gender = "M";
                 }
             }
         });
@@ -64,7 +64,7 @@ public class Join extends AppCompatActivity {
             public void onClick(View v) {
                 if(cb_women.isChecked()){
                     cb_man.setChecked(false);
-                    gender = cb_women.getText().toString();
+                    gender = "F";
                 }
             }
         });

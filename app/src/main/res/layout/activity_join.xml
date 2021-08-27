@@ -13,8 +13,8 @@
         android:layout_marginTop="4dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintStart_toStartOf="@+id/tv_commu_time"
+        app:layout_constraintTop_toBottomOf="@+id/tv_commu_time" />
 
     <EditText
         android:id="@+id/edt_nick"
@@ -27,7 +27,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tv_commu_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -49,7 +49,7 @@
         android:textSize="17dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/vert_center"
-        app:layout_constraintTop_toTopOf="@+id/textView3" />
+        app:layout_constraintTop_toTopOf="@+id/tv_commu_time" />
 
     <TextView
         android:id="@+id/textView7"
@@ -60,7 +60,7 @@
         android:text="비밀번호"
         android:textSize="17dp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintStart_toStartOf="@+id/tv_commu_time"
         app:layout_constraintTop_toBottomOf="@+id/edt_joinid" />
 
     <EditText
@@ -83,7 +83,7 @@
         android:text="비밀번호 확인"
         android:textSize="17dp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintStart_toStartOf="@+id/tv_commu_time"
         app:layout_constraintTop_toBottomOf="@+id/edt_joinpw" />
 
     <EditText
@@ -105,7 +105,7 @@
         android:text="주소"
         android:textSize="17dp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintStart_toStartOf="@+id/tv_commu_time"
         app:layout_constraintTop_toBottomOf="@+id/edt_checkpw" />
 
     <EditText
@@ -128,7 +128,7 @@
         android:text="나이"
         android:textSize="17dp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintStart_toStartOf="@+id/tv_commu_time"
         app:layout_constraintTop_toBottomOf="@+id/edt_address" />
 
     <TextView
