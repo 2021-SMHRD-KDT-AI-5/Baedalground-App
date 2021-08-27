@@ -94,6 +94,7 @@
         android:fontFamily="@font/titleone"
         android:gravity="center"
         android:text="리뷰작성페이지"
+        android:textColor="#DCF8C838"
         android:textSize="20sp"
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"

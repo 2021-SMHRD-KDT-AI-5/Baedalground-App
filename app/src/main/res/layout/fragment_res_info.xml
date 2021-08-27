@@ -28,6 +28,7 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/oneb"
         android:text="영업정보"
+        android:textColor="#DCF8C838"
         app:layout_constraintEnd_toStartOf="@+id/guideline26"
         app:layout_constraintStart_toStartOf="@+id/guideline16"
         app:layout_constraintTop_toTopOf="parent" />

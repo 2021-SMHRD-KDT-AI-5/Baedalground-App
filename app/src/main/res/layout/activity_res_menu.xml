@@ -37,6 +37,7 @@
         android:fontFamily="@font/titleone"
         android:gravity="center"
         android:text="상호명"
+        android:textColor="#DCF8C838"
         android:textSize="30dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintStart_toStartOf="@+id/guideline12"
