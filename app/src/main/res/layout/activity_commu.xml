@@ -90,18 +90,19 @@
             android:textStyle="normal"
             android:visibility="gone" />
 
+        <ImageView
+            android:id="@+id/iv_logo2"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/teamimg" />
+
         <Button
             android:id="@+id/btn_logo_c"
             style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="255dp"
+            android:layout_width="261dp"
             android:layout_height="match_parent"
             android:layout_gravity="center" />
-
-        <ImageView
-            android:id="@+id/iv_logo2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/teamimg" />
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 

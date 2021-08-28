@@ -25,4 +25,10 @@
     <style name="Theme.3Project.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.3Project.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="radioButton" parent="">
+        <item name="colorControlNormal">#0f0</item>
+        <item name="colorAccent">#f00</item>
+    </style>
+
 </resources>
