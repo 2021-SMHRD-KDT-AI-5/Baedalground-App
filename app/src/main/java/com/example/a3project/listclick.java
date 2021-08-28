@@ -1,5 +1,6 @@
 package com.example.a3project;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -33,7 +34,7 @@ public class listclick extends AppCompatActivity {
     TextView tv_restaurant, tv_time, tv_nick, tv_mynick;
 
     RequestQueue requestQueue;
-    StringRequest stringRequest_listclikc; // 게시글 리스트업
+    StringRequest stringRequest_listclick; // 게시글 리스트업
     StringRequest stringRequest_join; // 게시글 리스트업
 
     @Override
@@ -58,50 +59,91 @@ public class listclick extends AppCompatActivity {
 
         requestQueue = Volley.newRequestQueue(getApplicationContext());
 
-        //host_lat와 host_sit 데이터를 수정해서 서버로 전송하시면 됩니당
-        //일단 임의로 1과 2로 넣어놧어요
-        String SERVER_URL = "http://172.30.1.54:8090/p3_server/ListClickServlet?host_nick=" + host_nick + "&title=" + title;
-        //이부분인요
-        //뭐가문제죠~?
-        Log.v("hhd", "url : "+SERVER_URL);
+        stringRequest_listclick = new StringRequest(Request.Method.POST, "http://172.30.1.54:8090/p3_server/ListClickServlet", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObject_list_ck = new JSONObject(response);
 
-        stringRequest_listclikc = new StringRequest(Request.Method.GET, SERVER_URL,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
+                    jsonObject_list_ck.getJSONArray("0").get(0);
 
-                        Log.v("글목록", response);
-                        try {
-                            JSONArray array = new JSONArray(response);
+                    Log.d("리스트 obj", jsonObject_list_ck.getJSONArray("0").get(0).toString());
 
-                            for (int i = 0; i < array.length(); i++) {
+                    edt_title.setText(jsonObject_list_ck.getJSONArray("0").get(0).toString());
+                    tv_restaurant.setText(jsonObject_list_ck.getJSONArray("0").get(1).toString());
+                    tv_time.setText(jsonObject_list_ck.getJSONArray("0").get(2).toString());
+                    edt_min.setText(jsonObject_list_ck.getJSONArray("0").get(3).toString());
+                    edt_location.setText(jsonObject_list_ck.getJSONArray("0").get(4).toString());
+                    edt_content.setText(jsonObject_list_ck.getJSONArray("0").get(5).toString());
 
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
-                                JSONObject obj = array.getJSONObject(0);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), "error", Toast.LENGTH_SHORT).show();
+            }
+        })
+        {
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
 
-                                edt_title.setText(obj.getString("title"));
-                                edt_min.setText(obj.getString("min"));
-                                edt_content.setText(obj.getString("content"));
-                                edt_location.setText(obj.getString("min"));
-                                tv_restaurant.setText(obj.getString("restaurant"));
-                                tv_time.setText(obj.getString("time"));
-                            }
+                Intent it = getIntent();
+                String list_id = it.getStringExtra("id");
+                String list_title = it.getStringExtra("title");
 
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                params.put("id", list_id);
+                params.put("title", list_title);
 
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-//                        Log.v("글목록", error.getMessage());
-                        Toast.makeText(getApplicationContext(), "오류발생>>" + error, Toast.LENGTH_SHORT).show();
-                    }
-                });
+//                Log.d()
 
-        requestQueue.add(stringRequest_listclikc);
+                return params;
+            }
+        };
+
+//
+//        stringRequest_listclick = new StringRequest(Request.Method.GET, SERVER_URL,
+//                new Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String response) {
+//
+//                        Log.v("글목록", response);
+//                        try {
+//                            JSONArray array = new JSONArray(response);
+//
+//                            for (int i = 0; i < array.length(); i++) {
+//
+//
+//                                JSONObject obj = array.getJSONObject(0);
+//
+//                                edt_title.setText(obj.getString("title"));
+//                                edt_min.setText(obj.getString("min"));
+//                                edt_content.setText(obj.getString("content"));
+//                                edt_location.setText(obj.getString("min"));
+//                                tv_restaurant.setText(obj.getString("restaurant"));
+//                                tv_time.setText(obj.getString("time"));
+//                            }
+//
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                        }
+//
+//                    }
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+////                        Log.v("글목록", error.getMessage());
+//                        Toast.makeText(getApplicationContext(), "오류발생>>" + error, Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+
+        requestQueue.add(stringRequest_listclick);
 
 // 여기부터 코드에요
         stringRequest_join = new StringRequest(Request.Method.POST,

@@ -5,12 +5,14 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -24,18 +26,18 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.Map;
 
 
 public class Fragment2 extends Fragment {
     CheckBox cb_1, cb_2, cb_3, cb_4;
-    TextView tv_test;
-    String resultText = "";
+    EditText edt_myaddr;
     Button btn_top10;
-    RadioButton rb_1, rb_2, rb_3;
-    ListView listview;
+    RecyclerView recyclerView;
     String age = null;
+    String gender = null;
 
     RequestQueue requestQueue;
     StringRequest stringRequest_top10;
@@ -51,63 +53,64 @@ public class Fragment2 extends Fragment {
         cb_2 = view.findViewById(R.id.cb_2);
         cb_3 = view.findViewById(R.id.cb_3);
         cb_4 = view.findViewById(R.id.cb_4);
-        rb_1 = view.findViewById(R.id.rb_1);
-        rb_2 = view.findViewById(R.id.rb_2);
-        rb_3 = view.findViewById(R.id.rb_3);
-        ListView listview = view.findViewById(R.id.listview);
+
+        String[] cb_gp = new String[4];
+        cb_gp[0] = "cb_1";
+        cb_gp[1] = "cb_2";
+        cb_gp[2] = "cb_3";
+        cb_gp[3] = "cb_4";
+
+        recyclerView = view.findViewById(R.id.recyclerView);
         btn_top10 = view.findViewById(R.id.btn_top10);
 
-        cb_1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (cb_1.isChecked()) {
-                    cb_2.setChecked(false);
-                    cb_3.setChecked(false);
-                    cb_4.setChecked(false);
-                    age = cb_1.getText().toString();
-                }
+        for (int i = 0; i < 4; i++) {
+            if (cb_1.isChecked()) {
+
             }
-        });
 
-        cb_2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (cb_2.isChecked()) {
-                    cb_1.setChecked(false);
-                    cb_3.setChecked(false);
-                    cb_4.setChecked(false);
-                    age = cb_2
-                            .getText().toString();
+
+            requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
+
+            stringRequest_top10 = new StringRequest(Request.Method.POST, "http://172.30.1.54:8090/p3_server/Top10Servlet", new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    if (response.equals("1")) {
+                    } else {
+                        Toast.makeText(getActivity().getApplicationContext(), "실패...", Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }
-        });
-
-        cb_3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (cb_3.isChecked()) {
-                    cb_1.setChecked(false);
-                    cb_2.setChecked(false);
-                    cb_4.setChecked(false);
-                    age = cb_3.getText().toString();
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(getActivity().getApplicationContext(), "test", Toast.LENGTH_SHORT).show();
+                    error.printStackTrace();
                 }
-            }
-        });
+            }) {
+                @Nullable
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> params = new HashMap<>();
 
-        cb_4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (cb_4.isChecked()) {
-                    cb_1.setChecked(false);
-                    cb_2.setChecked(false);
-                    cb_3.setChecked(false);
-                    age = cb_4.getText().toString();
+                    String myaddr = edt_myaddr.getText().toString();
+
+                    params.put("age", age);
+                    params.put("gender", gender);
+                    params.put("myaddr", myaddr);
+
+                    return params;
                 }
-            }
-        });
+            };
+
+            btn_top10.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
 
+                    requestQueue.add(stringRequest_top10);
+                }
+            });
+
+        }
         return view;
-
     }
 }

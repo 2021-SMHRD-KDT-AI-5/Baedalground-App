@@ -52,7 +52,7 @@ public class fragment_main extends Fragment {
     WebSettings wbSettings;
 
     RequestQueue requestQueue;
-    StringRequest stringRequest_listup; // 게시글 리스트업
+    StringRequest stringRequest_listup, StringRequest_listclick; // 게시글 리스트업
 
     RecyclerView rv_commu;
     GestureDetector gestureDetector = new GestureDetector(getContext(), new GestureDetector.SimpleOnGestureListener(){
@@ -176,9 +176,14 @@ public class fragment_main extends Fragment {
 
                     JSONArray currentItem = data.get(currentPosition);
 
-                    Toast.makeText(getContext(), currentItem.toString(), Toast.LENGTH_SHORT).show();
-
-
+                    Intent it_list_detail = new Intent(getContext(), listclick.class);
+                    try {
+                        it_list_detail.putExtra("id", data.get(currentPosition).get(4).toString());
+                        it_list_detail.putExtra("title", data.get(currentPosition).get(0).toString());
+                    } catch (JSONException jsonException) {
+                        jsonException.printStackTrace();
+                    }
+                    startActivity(it_list_detail);
 
                 }
                 return false;
@@ -195,18 +200,7 @@ public class fragment_main extends Fragment {
             }
         });
 
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                String title = data.get(i).getTitle();
-//                String host_id = data.get(i).gethost_id();
-////                Log.v("hhd", title+","+host_nick);
-//
-//                Intent it = new Intent(getContext(), listclick.class);
-//                it.putExtra("host_id", host_id);
-//                it.putExtra("title", title);
-//                startActivity(it);
-//            }
-//        });
+
 
         btn_write.setOnClickListener(new View.OnClickListener() {
             @Override
