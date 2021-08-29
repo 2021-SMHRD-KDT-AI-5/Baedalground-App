@@ -49,13 +49,6 @@ public class listclick extends AppCompatActivity {
         tv_restaurant = findViewById(R.id.edt_restaurant);
         tv_time = findViewById(R.id.edt_time);
         tv_nick = findViewById(R.id.tv_nick);
-        tv_mynick = findViewById(R.id.tv_mynick);
-
-        Intent itsecond = getIntent();
-        String title = itsecond.getStringExtra("title");
-        String host_nick = itsecond.getStringExtra("host_nick");
-
-//        Log.v("hhd", "listclick : "+title+","+host_nick);
 
         requestQueue = Volley.newRequestQueue(getApplicationContext());
 
@@ -106,46 +99,8 @@ public class listclick extends AppCompatActivity {
             }
         };
 
-//
-//        stringRequest_listclick = new StringRequest(Request.Method.GET, SERVER_URL,
-//                new Response.Listener<String>() {
-//                    @Override
-//                    public void onResponse(String response) {
-//
-//                        Log.v("글목록", response);
-//                        try {
-//                            JSONArray array = new JSONArray(response);
-//
-//                            for (int i = 0; i < array.length(); i++) {
-//
-//
-//                                JSONObject obj = array.getJSONObject(0);
-//
-//                                edt_title.setText(obj.getString("title"));
-//                                edt_min.setText(obj.getString("min"));
-//                                edt_content.setText(obj.getString("content"));
-//                                edt_location.setText(obj.getString("min"));
-//                                tv_restaurant.setText(obj.getString("restaurant"));
-//                                tv_time.setText(obj.getString("time"));
-//                            }
-//
-//                        } catch (JSONException e) {
-//                            e.printStackTrace();
-//                        }
-//
-//                    }
-//                },
-//                new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
-////                        Log.v("글목록", error.getMessage());
-//                        Toast.makeText(getApplicationContext(), "오류발생>>" + error, Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-
         requestQueue.add(stringRequest_listclick);
 
-// 여기부터 코드에요
         stringRequest_join = new StringRequest(Request.Method.POST,
                 "http://172.30.1.11:20000/p3_server/JoinServelt",
                 new Response.Listener<String>() {
