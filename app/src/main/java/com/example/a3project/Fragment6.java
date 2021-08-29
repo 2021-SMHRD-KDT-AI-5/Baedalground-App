@@ -93,8 +93,10 @@ public class Fragment6 extends Fragment implements View.OnClickListener,MyOnClic
             @Override
             public void onClick(View v) {
                 if(!spf.getString("address", "").isEmpty()){
-                    CustomDialog customDialog = new CustomDialog(getContext());
-                    customDialog.show();
+//                    CustomDialog customDialog = new CustomDialog(getContext());
+//                    customDialog.show();
+                    update_addr_dialog update_address_dialog = new update_addr_dialog(getContext());
+                    update_address_dialog.show();
                 }
             }
         });

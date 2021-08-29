@@ -12,9 +12,12 @@
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/activity_login.xml" value="0.35208333333333336" />
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/activity_menu_category.xml" value="0.25" />
+        <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/activity_myorder.xml" value="0.33" />
+        <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/activity_order.xml" value="0.2421875" />
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/activity_res_menu.xml" value="0.37135416666666665" />
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/activity_test.xml" value="0.37135416666666665" />
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/activity_update.xml" value="0.2786458333333333" />
+        <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/activity_update_addr_dialog.xml" value="0.2421875" />
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/activity_write.xml" value="0.25" />
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/activity_write_review.xml" value="0.2109375" />
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/app_bar_order_list.xml" value="0.37135416666666665" />
@@ -45,11 +48,13 @@
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/reviewlist.xml" value="0.33" />
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/rv_commu_item.xml" value="0.5" />
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/rv_menu_item.xml" value="0.2421875" />
+        <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/rv_myorder_item.xml" value="0.33" />
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/rv_order_ing_item.xml" value="0.67" />
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/rv_search_item.xml" value="0.37135416666666665" />
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/rv_top10_item.xml" value="0.33" />
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/search_item.xml" value="0.25" />
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/select_listview.xml" value="0.2421875" />
+        <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/layout/update_address_dialog.xml" value="0.2421875" />
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/menu/menu.xml" value="0.37135416666666665" />
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/menu/simplemenu.xml" value="0.3703125" />
         <entry key="..\:/Users/SM2112/Desktop/v1_0/project3/3Project/app/src/main/res/menu/title.xml" value="0.36666666666666664" />

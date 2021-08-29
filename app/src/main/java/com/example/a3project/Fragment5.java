@@ -60,8 +60,8 @@ public class Fragment5 extends Fragment {
         btn_order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent it_order = new Intent(view.getContext(),myorder.class);
-//                startActivity(it_order);
+                Intent it_order = new Intent(view.getContext(), myorder.class);
+                startActivity(it_order);
             }
         });
 
