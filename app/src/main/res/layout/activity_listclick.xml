@@ -45,39 +45,39 @@
         app:layout_constraintStart_toStartOf="@+id/tv_commu_res"
         app:layout_constraintTop_toTopOf="@+id/edt_time" />
 
-    <EditText
+    <TextView
         android:id="@+id/edt_restaurant"
         android:layout_width="0dp"
         android:layout_height="35dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="1dp"
-        android:layout_marginEnd="80dp"
+        android:layout_marginEnd="10dp"
         android:editable="false"
+        android:gravity="center_vertical"
         android:textSize="14sp"
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tv_commu_res"
         app:layout_constraintTop_toBottomOf="@+id/edt_title" />
 
-    <EditText
+    <TextView
         android:id="@+id/edt_time"
         android:layout_width="0dp"
         android:layout_height="35dp"
-        android:layout_marginEnd="240dp"
+        android:layout_marginEnd="10dp"
         android:editable="false"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/edt_restaurant"
         app:layout_constraintTop_toBottomOf="@+id/edt_restaurant" />
 
-    <EditText
+    <TextView
         android:id="@+id/edt_min"
-        android:layout_width="0dp"
+        android:layout_width="50dp"
         android:layout_height="35dp"
-        android:layout_marginEnd="5dp"
         android:editable="false"
+        android:gravity="center_vertical"
         android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView8"
         app:layout_constraintStart_toStartOf="@+id/edt_time"
         app:layout_constraintTop_toBottomOf="@+id/edt_location" />
 
@@ -90,20 +90,6 @@
         android:textStyle="normal"
         app:layout_constraintBottom_toBottomOf="@+id/edt_min"
         app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="@+id/edt_min" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="231dp"
-        android:fontFamily="@font/one"
-        android:text="명"
-        app:layout_constraintBottom_toBottomOf="@+id/edt_min"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/edt_min"
         app:layout_constraintTop_toTopOf="@+id/edt_min" />
 
     <EditText
@@ -146,12 +132,13 @@
         app:layout_constraintStart_toStartOf="@+id/tv_commu_time"
         app:layout_constraintTop_toTopOf="@+id/edt_location" />
 
-    <EditText
+    <TextView
         android:id="@+id/edt_location"
         android:layout_width="0dp"
         android:layout_height="35dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="10dp"
         android:editable="false"
+        android:gravity="center_vertical"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/edt_time"

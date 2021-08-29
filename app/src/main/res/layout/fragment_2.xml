@@ -27,6 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="검색 조건"
+        android:textColor="#0788C3"
         app:layout_constraintStart_toStartOf="@+id/guideline32"
         app:layout_constraintTop_toBottomOf="@+id/imageView10" />
 
@@ -52,6 +53,7 @@
         android:fontFamily="@font/one"
         android:text="10대"
         android:textSize="12dp"
+        android:buttonTint="#DCF8C838"
         app:layout_constraintBottom_toBottomOf="@+id/textView"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="@+id/textView" />
@@ -64,6 +66,7 @@
         android:fontFamily="@font/one"
         android:text="20대"
         android:textSize="12dp"
+        android:buttonTint="#DCF8C838"
         app:layout_constraintBottom_toBottomOf="@+id/cb_1"
         app:layout_constraintStart_toEndOf="@+id/cb_1"
         app:layout_constraintTop_toTopOf="@+id/cb_1" />
@@ -89,6 +92,7 @@
         android:fontFamily="@font/one"
         android:text="40대"
         android:textSize="12dp"
+        android:buttonTint="#DCF8C838"
         app:layout_constraintBottom_toBottomOf="@+id/cb_3"
         app:layout_constraintStart_toEndOf="@+id/cb_3"
         app:layout_constraintTop_toTopOf="@+id/cb_3" />
@@ -101,6 +105,7 @@
         android:fontFamily="@font/one"
         android:gravity="center"
         android:text="성별"
+        android:textColor="#DCF8C838"
         android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/guideline32"
@@ -161,6 +166,7 @@
         android:fontFamily="@font/one"
         android:gravity="center"
         android:text="동단위"
+        android:textColor="#DCF8C838"
         android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/guideline32"

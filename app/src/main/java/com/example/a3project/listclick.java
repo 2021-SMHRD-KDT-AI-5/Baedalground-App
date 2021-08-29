@@ -30,8 +30,8 @@ import java.util.Map;
 public class listclick extends AppCompatActivity {
 
     Button btn_join;
-    EditText edt_title, edt_min, edt_content, edt_location;
-    TextView tv_restaurant, tv_time, tv_nick, tv_mynick;
+    EditText edt_title;
+    TextView tv_restaurant, tv_time, tv_nick, tv_mynick,edt_min, edt_content, edt_location;
 
     RequestQueue requestQueue;
     StringRequest stringRequest_listclick; // 게시글 리스트업
