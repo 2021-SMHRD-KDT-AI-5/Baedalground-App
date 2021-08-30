@@ -65,4 +65,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="237dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="220dp"
+        android:backgroundTint="#F4CD56"
+        android:fontFamily="@font/one"
+        android:text="환경설정"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
