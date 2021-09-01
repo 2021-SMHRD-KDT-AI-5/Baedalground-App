@@ -18,6 +18,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -47,6 +48,10 @@ public class Fragment4 extends Fragment {
     RequestQueue requestQueue;
     StringRequest stringRequest_ordered;
 
+    TextView tv_title, tv_final;
+
+    String menu_list = "";
+
     ArrayList<JSONArray> order_list = new ArrayList<>();
 
     @Override
@@ -61,7 +66,15 @@ public class Fragment4 extends Fragment {
 
         requestQueue = Volley.newRequestQueue(getContext());
 
+        tv_title = view.findViewById(R.id.tv_commu_time);
+        tv_final = view.findViewById(R.id.tv_final);
+
+        order_list.clear();
+
+
+
         SharedPreferences spf = getActivity().getApplicationContext().getSharedPreferences("menu_item", Context.MODE_PRIVATE);
+        SharedPreferences spf_id = getActivity().getApplicationContext().getSharedPreferences("basic", Context.MODE_PRIVATE);
 
 //        Log.d("주문내역", spf.getString("addItem","없음"));
         try {
@@ -69,11 +82,21 @@ public class Fragment4 extends Fragment {
 //            Log.d("arr test", arr.toString());
             Iterator<String> it = arr.keys();
 
+            int price = 0;
+
+
             while(it.hasNext()) {
                 String key = it.next();
-//                Log.d("arr list keys", key);
                 order_list.add(arr.getJSONArray(key));
+
+                price += Integer.valueOf(arr.getJSONArray(key).get(3).toString());
+                menu_list += arr.getJSONArray(key).get(2).toString() + ", ";
             }
+
+            Intent it_title = getActivity().getIntent();
+            String title = it_title.getStringExtra("resTitle");
+            tv_title.setText(title);
+            tv_final.setText("총 금액 : " + String.valueOf(price) + " 원");
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -114,6 +137,11 @@ public class Fragment4 extends Fragment {
             @Override
             public void onResponse(String response) {
                 if (response!=null) {
+
+
+
+
+
                     Intent it = new Intent(getContext(), MainActivity.class);
                     startActivity(it);
                 }else{
@@ -133,10 +161,10 @@ public class Fragment4 extends Fragment {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
 
-//                params.put("id", );
-//                params.put("res_name", );
-//                params.put("menu_name", );
-//                params.put("price", );
+                params.put("res_name", tv_title.getText().toString());
+                params.put("menu_name", menu_list.toString());
+                params.put("price", tv_final.getText().toString());
+                params.put("id", spf_id.getString("id", null));
 
                 return params;
             }

@@ -1,23 +1,26 @@
 package com.example.a3project;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class reviewAdapter extends BaseAdapter {
+public class reviewAdapter2 extends BaseAdapter {
     private  Context context;
     private LayoutInflater inf;
     private  int layout;
-    private ArrayList<reviewVO> review_data;
+    private ArrayList<reviewVO2> review_data;
 
 
-    public reviewAdapter(Context context, int layout, ArrayList<reviewVO> review_data){
+
+    public reviewAdapter2(Context context, int layout, ArrayList<reviewVO2> review_data){
         this.context = context;
         this.inf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.layout =layout;
@@ -59,28 +62,31 @@ public class reviewAdapter extends BaseAdapter {
         // 템플릿에 들어있는 textView 찾아오기
         // 글제목
 
+
+
+        TextView tv_reviewNick = convertView.findViewById(R.id.tv_reviewnick);
+        tv_reviewNick.setText(review_data.get(i).getMemberId());
+
         //맛
         TextView tv_taste = convertView.findViewById(R.id.tv_taste);
-
-//        String taste3 = String.valueOf(review_data.get(i).getTaste());
-        Integer taste = review_data.get(i).getTaste();
-        String taste2 = taste.toString();
+        float taste = review_data.get(i).getTasteReview();
+        String taste2 = String.valueOf(taste);
         tv_taste.setText(taste2);
 
 
         TextView tv_amount = convertView.findViewById(R.id.tv_amount);
-        Integer amount = review_data.get(i).getAmount();
-        String amount2 = amount.toString();
+        float amount = review_data.get(i).getAmountReview();
+        String amount2 = String.valueOf(amount);
         tv_amount.setText(amount2);
 
         TextView tv_speed = convertView.findViewById(R.id.tv_speed);
-        Integer speed = review_data.get(i).getSpeed();
-        String speed2 = speed.toString();
+        float speed = review_data.get(i).getDeliReview();
+        String speed2 = String.valueOf(speed);
         tv_speed.setText(speed2);
 
 //        ArrayList<Integer> avgs = new ArrayList<>();
 //        avgs.add()
-       //양
+        //양
 //        TextView tv_amount = convertView.findViewById(R.id.tv_amount);
 //        tv_amount.setText(review_data.get(i).getAmount());
 //        //배달속도
@@ -88,31 +94,17 @@ public class reviewAdapter extends BaseAdapter {
 //        tv_speed.setText(review_data.get(i).getSpeed());
         //리뷰
         TextView tv_review = convertView.findViewById(R.id.tv_review);
-        tv_review.setText(" "+review_data.get(i).getReview());
+        tv_review.setText(" "+review_data.get(i).getReviewContents());
         //아이디
-//        ImageView img_pp = convertView.findViewById(R.id.img_pp);
+
         //프로필사진
-//        img_pp.setImageResource(R.drawable.chicken);
+
 
         //평균별점
-        ImageView img_star = convertView.findViewById(R.id.rat_star);
-        Integer avg = (taste+amount+speed)/3;
-        String avg2 = avg.toString();
-        if(avg==1 ){
-            img_star.setImageResource(R.drawable.star1);
-        }
-        else if(avg==2){
-            img_star.setImageResource(R.drawable.star2);
-        }
-        else if(avg==3){
-            img_star.setImageResource(R.drawable.star3);
-        }
-        else if(avg==4){
-            img_star.setImageResource(R.drawable.star4);
-        }
-        else if(avg==5){
-            img_star.setImageResource(R.drawable.star5);
-        }
+        float avg = (taste+amount+speed)/3;
+        String avg2 = String.valueOf(avg);
+        Log.v("평균", avg2);
+
 
         //별그림 세팅
         ImageView star1 = convertView.findViewById(R.id.star1);
@@ -121,7 +113,8 @@ public class reviewAdapter extends BaseAdapter {
         star2.setImageResource(R.drawable.star);
         ImageView star3 = convertView.findViewById(R.id.star3);
         star3.setImageResource(R.drawable.star);
-
+        RatingBar rat_star= convertView.findViewById(R.id.rat_star);
+        rat_star.setRating(avg);
 
 
 

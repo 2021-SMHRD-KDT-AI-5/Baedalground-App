@@ -24,7 +24,7 @@ import java.util.Map;
 
 public class Join extends AppCompatActivity {
 
-    EditText edt_joinid, edt_nick, edt_joinpw, edt_checkpw, edt_address, edt_age;
+    EditText edt_joinid, edt_nick, edt_joinpw, edt_checkpw, edt_age;
     CheckBox cb_man, cb_women;
     Button btn_check, btn_join;
     String gender = null;
@@ -41,7 +41,6 @@ public class Join extends AppCompatActivity {
         edt_nick = findViewById(R.id.edt_nick);
         edt_joinpw = findViewById(R.id.edt_joinpw);
         edt_checkpw = findViewById(R.id.edt_checkpw);
-        edt_address = findViewById(R.id.edt_address);
         edt_age = findViewById(R.id.edt_age);
         btn_check = findViewById(R.id.btn_check);
         btn_join = findViewById(R.id.btn_setup);
@@ -111,7 +110,7 @@ public class Join extends AppCompatActivity {
                 String id = edt_joinid.getText().toString();
                 String nick = edt_nick.getText().toString();
                 String pw = edt_joinpw.getText().toString();
-                String address = edt_address.getText().toString();
+                String address = "";
                 String age = edt_age.getText().toString();
                 String cash = "0";
 
@@ -127,16 +126,11 @@ public class Join extends AppCompatActivity {
             }
         };
 
-
-
-
         btn_join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 requestQueue.add(stringRequest_join);
             }
-
-
 
         });
 

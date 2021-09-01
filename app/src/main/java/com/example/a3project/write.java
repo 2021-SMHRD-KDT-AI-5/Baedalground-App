@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class write extends AppCompatActivity {
-    EditText edt_title, edt_restaurant, edt_time, edt_min, edt_location, edt_content;
+    EditText edt_title, edt_restaurants, edt_time, edt_min, edt_location, edt_content;
     Button btn_search, btn_location, btn_setup;
     TextView tv_nick;
 
@@ -36,7 +36,7 @@ public class write extends AppCompatActivity {
         setContentView(R.layout.activity_write);
 
         edt_title = findViewById(R.id.edt_title);
-        edt_restaurant = findViewById(R.id.edt_restaurant);
+        edt_restaurants = findViewById(R.id.edt_restaurants);
         edt_time = findViewById(R.id.edt_time);
         edt_min = findViewById(R.id.edt_min);
         edt_location = findViewById(R.id.edt_location);
@@ -81,7 +81,7 @@ public class write extends AppCompatActivity {
                 //접근제한자 리턴타입(맵형식)<키, 벨류>
                 Map<String, String> params = new HashMap<>();
                 params.put("title", edt_title.getText().toString());
-                params.put("restaurant", edt_restaurant.getText().toString());
+                params.put("restaurant", edt_restaurants.getText().toString());
                 params.put("time", edt_time.getText().toString());
                 params.put("location", edt_location.getText().toString());
                 params.put("min", edt_min.getText().toString());

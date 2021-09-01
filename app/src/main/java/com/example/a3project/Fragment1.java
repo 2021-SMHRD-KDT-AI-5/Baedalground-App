@@ -121,8 +121,14 @@ public class Fragment1 extends Fragment {
             public void onResponse(String response) {
                 if (response!=null) {
                     JSONObject jsonObject_menu = null;
+
+                    Log.d("menu test to resmenu", response);
+
                     try {
                         jsonObject_menu = new JSONObject(response);
+
+//                        Log.d("menu test to resmenu", jsonObject_menu.toString());
+
                         jsonObject_menu.getJSONObject("menu_DTO");
 
                         Intent it_menu = new Intent(getActivity(), res_menu.class);
@@ -177,8 +183,8 @@ public class Fragment1 extends Fragment {
 //                    검색 결과 클릭하면 메뉴정보 서버에서 알아오기
 
                     try {
-                        search_menu = currentItem.get(2).toString();
-                        Toast.makeText(getContext(), search_menu, Toast.LENGTH_SHORT).show();
+                        search_menu = currentItem.get(0).toString();
+//                        Toast.makeText(getContext(), search_menu, Toast.LENGTH_SHORT).show();
 
                         requestQueue.add(stringRequest_menu);
 

@@ -40,9 +40,18 @@ public class Fragment_res_name extends Fragment {
         Bundle bundle = getArguments();
 
         try {
-            JSONObject menu = new JSONObject(bundle.getSerializable("list_menu").toString());
+//            JSONObject menu = new JSONObject(bundle.getSerializable("list_menu").toString());
 
-            tv_resmenu_name.setText(menu.getJSONArray("0").get(0).toString());
+            Intent it_menu = getActivity().getIntent();
+            it_menu.getStringExtra("list_menu");
+
+//            Log.d("!!", it_menu.getStringExtra("list_menu"));
+
+            JSONObject menu = new JSONObject(it_menu.getStringExtra("list_menu"));
+
+            Log.d("print menu", menu.toString());
+
+            tv_resmenu_name.setText(menu.getJSONArray("0").get(1).toString());
 
             Toast.makeText(getContext(), tv_resmenu_name.getText().toString(), Toast.LENGTH_SHORT).show();
 
@@ -50,6 +59,7 @@ public class Fragment_res_name extends Fragment {
 
             menu_table_Adapter adapter= new menu_table_Adapter(menu, getActivity().getApplicationContext());
             recyclerView.setAdapter(adapter);
+
         } catch (JSONException e) {
             e.printStackTrace();
         }

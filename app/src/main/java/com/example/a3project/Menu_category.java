@@ -91,7 +91,7 @@ public class Menu_category extends AppCompatActivity {
 
 //                    검색 결과 클릭하면 메뉴정보 서버에서 알아오기
                     try {
-                        search_menu = currentItem.get(2).toString();
+                        search_menu = currentItem.get(1).toString();
 
                         requestQueue.add(stringRequest_menu);
 

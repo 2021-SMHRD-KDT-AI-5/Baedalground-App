@@ -15,6 +15,9 @@ import android.widget.TextView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -24,7 +27,6 @@ public class res_menu extends AppCompatActivity implements Serializable {
 
     TextView tv_resm_name;
     TabLayout tabLayout;
-    RatingBar ratingBar;
     ViewPager viewPager;
 
     res_menu_Adapter adapter;
@@ -35,7 +37,6 @@ public class res_menu extends AppCompatActivity implements Serializable {
         setContentView(R.layout.activity_res_menu);
 
         tv_resm_name = findViewById(R.id.tv_resm_name);
-        ratingBar = findViewById(R.id.ratingBar);
         tabLayout = findViewById(R.id.tabs);
         viewPager = findViewById(R.id.vp_cont);
 
@@ -58,6 +59,13 @@ public class res_menu extends AppCompatActivity implements Serializable {
         Bundle bundle = it.getExtras();
         bundle.getSerializable("list_menu");
 
+        try {
+            JSONObject res_info_name = new JSONObject(bundle.getSerializable("list_res_info").toString());
+
+//            Log.d("res_info", res_info_name.getJSONArray("0").get(0).toString());
+
+            tv_resm_name.setText(res_info_name.getJSONArray("0").get(0).toString());
+
         Log.d("bundle_test", bundle.getSerializable("list_menu").toString());
 
         FloatingActionButton fab = findViewById(R.id.floatingActionButton);
@@ -66,12 +74,17 @@ public class res_menu extends AppCompatActivity implements Serializable {
             public void onClick(View view) {
                 Intent intent = new Intent(res_menu.this, MainActivity.class);
                 intent.putExtra("frag_name", "frag4");
+                intent.putExtra("resTitle", tv_resm_name.getText().toString());
                 startActivity(intent);
             }
         });
         
         mFragmentList[0].setArguments(bundle);
         mFragmentList[1].setArguments(bundle);
-    }
 
+    } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

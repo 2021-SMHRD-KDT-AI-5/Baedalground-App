@@ -32,7 +32,7 @@ public class Fragment_res_info extends Fragment {
         try {
             JSONObject res_info_name = new JSONObject(bundle.getSerializable("list_res_info").toString());
 
-            Log.d("res_info", res_info_name.getJSONArray("0").get(0).toString());
+//            Log.d("res_info", res_info_name.getJSONArray("0").get(0).toString());
 
             tv_res_info_name.setText(res_info_name.getJSONArray("0").get(0).toString());
             tv_res_info_addr.setText(res_info_name.getJSONArray("0").get(1).toString());

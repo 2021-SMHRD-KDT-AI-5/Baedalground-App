@@ -45,10 +45,12 @@ public class Login extends AppCompatActivity {
 
         requestQueue = Volley.newRequestQueue(getApplicationContext());
 
+        //stringRequest_login = new StringRequest(Request.Method.POST, "http://192.168.43.224:8090/p3_server/LoginServlet", new Response.Listener<String>() {
         stringRequest_login = new StringRequest(Request.Method.POST, "http://172.30.1.54:8090/p3_server/LoginServlet", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 String[] login_arr = response.split(",");
+//                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
                 if (login_arr[0].equals("1")) {
                     Intent it_login = new Intent(Login.this, MainActivity.class);
                     it_login.putExtra("id", login_arr[1]);

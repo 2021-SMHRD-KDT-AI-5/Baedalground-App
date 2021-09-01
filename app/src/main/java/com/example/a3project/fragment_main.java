@@ -141,7 +141,7 @@ public class fragment_main extends Fragment {
                         }
 
 //                        Log.d("commu test", data.get(0).get(1).toString());
-                        Log.d("commu test", data.get(0).toString());
+//                        Log.d("commu test", data.get(0).toString());
                         rv_commu.setLayoutManager(new LinearLayoutManager(getContext()));
                         Commu_list_Adapter adapter = new Commu_list_Adapter(data);
                         rv_commu.setAdapter(adapter);
@@ -200,8 +200,6 @@ public class fragment_main extends Fragment {
             }
         });
 
-
-
         btn_write.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -209,10 +207,6 @@ public class fragment_main extends Fragment {
                 startActivity(it);
             }
         });
-
-
-
-
 
         return view;
 

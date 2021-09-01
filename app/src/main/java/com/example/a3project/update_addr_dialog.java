@@ -97,12 +97,15 @@ public class update_addr_dialog extends Dialog {
         wbSettings = wb_update_addr.getSettings();
         wbSettings.setJavaScriptEnabled(true);
         wbSettings.setJavaScriptCanOpenWindowsAutomatically(true);
+        wbSettings.setSupportMultipleWindows(true);
 //        wbSettings.setLoadWithOverviewMode(true);
 //        wbSettings.setUseWideViewPort(true);
         wbSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
         wbSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
         wbSettings.setDomStorageEnabled(true);
         wb_update_addr.loadUrl("http://172.30.1.54:8090/p3_server/insert_xy.jsp");
+
+
 
     }
 }

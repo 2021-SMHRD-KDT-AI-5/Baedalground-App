@@ -29,11 +29,9 @@
 
     <TextView
         android:id="@+id/tv_resm_name"
-        android:layout_width="165dp"
+        android:layout_width="0dp"
         android:layout_height="61dp"
-        android:layout_marginStart="82dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="82dp"
         android:fontFamily="@font/titleone"
         android:gravity="center"
         android:text="상호명"
@@ -42,15 +40,6 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintStart_toStartOf="@+id/guideline12"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <RatingBar
-        android:id="@+id/ratingBar"
-        style="@style/Widget.AppCompat.RatingBar.Small"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="@+id/guideline13"
-        app:layout_constraintStart_toStartOf="@+id/guideline12"
-        app:layout_constraintTop_toBottomOf="@+id/tv_resm_name" />
 
     <!--    <androidx.fragment.app.FragmentContainerView-->
 <!--        android:id="@+id/frag_container"-->
@@ -74,15 +63,19 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:clickable="true"
-        app:fabSize="auto"
+        android:cropToPadding="false"
+        android:foregroundGravity="center"
+        app:backgroundTint="#FDD835"
+        app:fabSize="mini"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_add" />
+        app:srcCompat="@android:drawable/ic_menu_add"
+        app:useCompatPadding="false" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/vp_cont"
@@ -99,9 +92,8 @@
         android:id="@+id/tv_od_price"
         android:layout_width="151dp"
         android:layout_height="45dp"
-        android:layout_marginTop="3dp"
-        android:text="#000 #001 ..."
+        android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="@+id/tv_resm_name"
         app:layout_constraintStart_toStartOf="@+id/tv_resm_name"
-        app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_resm_name" />
 </androidx.constraintlayout.widget.ConstraintLayout>

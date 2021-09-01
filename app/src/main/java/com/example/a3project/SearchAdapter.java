@@ -20,8 +20,6 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
     //  아이템뷰 저장하는 뷰홀더 클래스
     public class ViewHolder extends RecyclerView.ViewHolder{
-        ImageView iv_res;
-        TextView tv_resName, tv_resEtc;
 
         ImageView simg;
         TextView stv1, stv2;
@@ -56,8 +54,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
     public void onBindViewHolder(ViewHolder holder, int position) {
         String sp_name, sp_addr;
         try {
-            sp_name = sData.get(position).get(2).toString();
-            sp_addr = sData.get(position).get(3).toString();
+            sp_name = sData.get(position).get(1).toString();
+            sp_addr = sData.get(position).get(2).toString();
 
             holder.simg.setImageResource(R.drawable.chicken);
             holder.stv1.setText(sp_name);

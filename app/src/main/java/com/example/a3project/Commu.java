@@ -18,7 +18,7 @@ public class Commu extends AppCompatActivity {
     fragment_main fragment_main;
     fragment_join fragment_join;
     fragment_myposter fragment_myposter;
-    fragment_review Fragment_review;
+//    fragment_review Fragment_review;
     Button btn_login_c,btn_logo_c,btn_logout_c,btn_login2,btn_logout2;
 
 
@@ -49,7 +49,7 @@ public class Commu extends AppCompatActivity {
         fragment_main = new fragment_main();
         fragment_join = new fragment_join();
         fragment_myposter = new fragment_myposter();
-        Fragment_review = new fragment_review();
+//        Fragment_review = new fragment_review();
 
 //        Intent data = getIntent();
 //        if(data.getStringExtra("id")!=null){
@@ -93,10 +93,10 @@ public class Commu extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.containerC, fragment_myposter).commit();
                         break;
-                    case R.id.tab4:
-                        getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.containerC, Fragment_review).commit();
-                        break;
+//                    case R.id.tab4:
+//                        getSupportFragmentManager().beginTransaction()
+//                                .replace(R.id.containerC, Fragment_review).commit();
+//                        break;
                 }
 
                 return true;
